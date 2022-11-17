@@ -26,7 +26,7 @@
 
 ### Performance
 
-Labeled images are sampled from the **original high-quality** training set. Results are obtained by DeepLabv3+ based on ResNet-101 with training size 321.
+Labeled images are sampled from the **original high-quality** training set. Results are obtained by DeepLabv3+ based on ResNet-101 with training size 512.
 
 | Method                      | 1/115 (92)| 1/57 (183)| 1/28 (366)| 1/14 (732)| 1/7 (1464)  |
 | :-------------------------: | :-------: | :-------: | :-------: | :-------: | :---------: |
