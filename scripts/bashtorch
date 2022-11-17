@@ -1,0 +1,5 @@
+# bashtorch file
+# export TORCH_HOME=./envs/torch
+export TORCH_HOME=./envs/a100torch
+export PATH=${TORCH_HOME}/bin:$PATH
+export LD_LIBRARY_PATH=${TORCH_HOME}/lib/:${LD_LIBRARY_PATH}
