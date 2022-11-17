@@ -1,0 +1,99 @@
+# # # # # # # # # # # # # # 
+# 1. datasets
+# # # # # # # # # # # # # # 
+dataset: # Required.
+  type: cityscapes_semi
+  train:
+    data_root: ./data/cityscapes
+    data_list: ./data/splitsall/cityscapes/744/labeled.txt
+    batch_size: 4
+    flip: True
+    rand_resize: [0.5, 2.0]
+    resize_base_size: [1024, 2048]
+    crop:
+      type: rand
+      size: [800, 800]
+    #---- 1) strong data augs ----#
+    strong_aug:
+      num_augs: 3
+      flag_use_random_num_sampling: True # flag_use_wide_range
+
+  val:
+    data_root: ./data/cityscapes
+    data_list: ./data/splitsall/cityscapes/val.txt
+    batch_size: 4
+    crop:
+      size: [800, 800]
+  n_sup: 744
+  workers: 4
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+  ignore_label: 255
+
+# # # # # # # # # # # # # # 
+# 2. training params
+# # # # # # # # # # # # # # 
+trainer: # Required.
+  epochs: 240
+  sup_only_epoch: 0 # 0, 1
+  evaluate_student: True
+  optimizer:
+    type: SGD
+    kwargs:
+      lr: 0.01 # 4GPUs
+      momentum: 0.9
+      weight_decay: 0.0005
+  lr_scheduler:
+    mode: poly
+    kwargs:
+      power: 0.9
+  unsupervised:
+    flag_extra_weak: False
+    threshold: -0.1   # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ params1: 0.7, 0.75, 0.8, 0.85, 0.9, 0.95
+    loss_weight: 1.0  # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ params2: 0.7, 1.0, 1.5, 2.0, 3.0, 4.0
+    #------ 2)cutmix augs ------#
+    use_cutmix: True
+    use_cutmix_adaptive: True
+    use_cutmix_trigger_prob: 1.0  # wide range, but trigger by 100%
+    
+# # # # # # # # # # # # # # 
+# 3. output files, and loss
+# # # # # # # # # # # # # # 
+saver:
+  snapshot_dir: checkpoints
+  pretrain: ''
+  use_tb: False
+
+criterion:
+  type: ohem
+  kwargs:
+    thresh: 0.7
+    min_kept: 100000
+
+# # # # # # # # # # # # # # 
+# 4. models
+# # # # # # # # # # # # # # 
+net: # Required.
+  num_classes: 19
+  sync_bn: True
+  ema_decay: 0.996
+  # aux_loss:
+  #   aux_plane: 1024
+  #   loss_weight: 0.4
+  encoder:
+    type: augseg.models.resnet.resnet101
+    pretrain: ./pretrained/resnet101.pth
+    # type: augseg.models.resnet.resnet50
+    # pretrain: ./pretrained/resnet50.pth
+    kwargs:
+      zero_init_residual: True
+      multi_grid: True
+      replace_stride_with_dilation: [False, False, True]  # [output_stride = 16]
+      # replace_stride_with_dilation: [False, True, True]  # [output_stride = 8]
+  decoder:
+    type: augseg.models.decoder.dec_deeplabv3_plus
+    kwargs:
+      inner_planes: 256
+      low_conv_planes: 48 # 256
+      dilations: [6, 12, 18]
+      # dilations: [12, 24, 36]  # [output_stride = 8]

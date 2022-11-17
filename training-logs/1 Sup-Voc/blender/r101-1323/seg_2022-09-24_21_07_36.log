@@ -1,0 +1,2126 @@
+[09/24/2022 21:07:36][INFO] - {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'ignore_label': 255,
+             'mean': [0.485, 0.456, 0.406],
+             'n_sup': 1323,
+             'std': [0.229, 0.224, 0.225],
+             'train': {'batch_size': 8,
+                       'crop': {'size': [513, 513], 'type': 'rand'},
+                       'data_list': './data/splitsall/pascal/1323/labeled.txt',
+                       'data_root': './data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0],
+                       'resize_base_size': 513},
+             'type': 'pascal',
+             'val': {'batch_size': 1,
+                     'data_list': './data/splitsall/pascal/val.txt',
+                     'data_root': './data/VOC2012'},
+             'workers': 4},
+ 'exp_path': './exps/voc-r101/voc_sup1323',
+ 'log_path': './exps/voc-r101/voc_sup1323/log',
+ 'net': {'decoder': {'kwargs': {'dilations': [6, 12, 18],
+                                'inner_planes': 256,
+                                'low_conv_planes': 48},
+                     'type': 'augseg.models.decoder.dec_deeplabv3_plus'},
+         'ema_decay': 0.996,
+         'encoder': {'kwargs': {'multi_grid': False,
+                                'replace_stride_with_dilation': [False,
+                                                                 False,
+                                                                 True],
+                                'zero_init_residual': True},
+                     'pretrain': './pretrained/resnet101.pth',
+                     'type': 'augseg.models.resnet.resnet101'},
+         'num_classes': 21,
+         'sync_bn': True},
+ 'save_path': './exps/voc-r101/voc_sup1323/checkpoints',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints', 'use_tb': False},
+ 'trainer': {'epochs': 80,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'}}}
+[09/24/2022 21:07:38][INFO] - # samples: 1323
+[09/24/2022 21:07:38][INFO] - # samples: 1449
+[09/24/2022 21:07:38][INFO] - Get loader Done...
+[09/24/2022 21:07:38][INFO] - -------------------------- start training --------------------------
+[09/24/2022 21:07:40][INFO] - Reducer buckets have been rebuilt in this iteration.
+[09/24/2022 21:07:56][INFO] - Epoch/Iter [80: 0/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 2.1859 (2.3843)	LR 0.00100 	
+[09/24/2022 21:08:12][INFO] - Epoch/Iter [80: 0/ 40]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 1.6754 (1.8345)	LR 0.00099 	
+[09/24/2022 21:08:28][INFO] - Epoch/Iter [80: 0/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 1.6745 (1.8959)	LR 0.00099 	
+[09/24/2022 21:08:46][INFO] - Epoch/Iter [80: 0/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 1.9185 (1.6954)	LR 0.00099 	
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [0] IoU 81.48
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [1] IoU 45.06
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [2] IoU 29.87
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [3] IoU 14.79
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [4] IoU 0.00
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [5] IoU 0.00
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [6] IoU 48.98
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [7] IoU 28.40
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [8] IoU 58.35
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [9] IoU 13.13
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [10] IoU 0.00
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [11] IoU 39.91
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [12] IoU 63.28
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [13] IoU 26.61
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [14] IoU 14.63
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [15] IoU 63.65
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [16] IoU 21.88
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [17] IoU 5.44
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [18] IoU 19.95
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [19] IoU 56.12
+[09/24/2022 21:09:40][INFO] -  [Test] -  class [20] IoU 31.84
+[09/24/2022 21:09:42][INFO] -  <<Test>> - Epoch: 0.  MIoU: 31.59. [31mBest: 31.59/0[0m
+[09/24/2022 21:09:59][INFO] - Epoch/Iter [80: 1/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 2.0412 (1.1284)	LR 0.00099 	
+[09/24/2022 21:10:15][INFO] - Epoch/Iter [80: 1/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.8329 (1.0455)	LR 0.00098 	
+[09/24/2022 21:10:31][INFO] - Epoch/Iter [80: 1/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.7737 (1.2653)	LR 0.00098 	
+[09/24/2022 21:10:49][INFO] - Epoch/Iter [80: 1/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.8396 (1.0303)	LR 0.00098 	
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [0] IoU 87.43
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [1] IoU 61.25
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [2] IoU 30.95
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [3] IoU 65.64
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [4] IoU 47.91
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [5] IoU 53.43
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [6] IoU 53.71
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [7] IoU 66.85
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [8] IoU 76.30
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [9] IoU 11.21
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [10] IoU 14.02
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [11] IoU 36.28
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [12] IoU 69.08
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [13] IoU 44.98
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [14] IoU 58.45
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [15] IoU 71.71
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [16] IoU 30.94
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [17] IoU 55.02
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [18] IoU 34.31
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [19] IoU 24.90
+[09/24/2022 21:11:44][INFO] -  [Test] -  class [20] IoU 31.52
+[09/24/2022 21:11:46][INFO] -  <<Test>> - Epoch: 1.  MIoU: 48.85. [31mBest: 48.85/1[0m
+[09/24/2022 21:12:03][INFO] - Epoch/Iter [80: 2/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.9956 (0.7760)	LR 0.00097 	
+[09/24/2022 21:12:19][INFO] - Epoch/Iter [80: 2/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 1.0640 (0.7560)	LR 0.00097 	
+[09/24/2022 21:12:35][INFO] - Epoch/Iter [80: 2/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.8833 (0.9087)	LR 0.00097 	
+[09/24/2022 21:12:53][INFO] - Epoch/Iter [80: 2/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.6022 (0.8168)	LR 0.00097 	
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [0] IoU 85.50
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [1] IoU 53.91
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [2] IoU 25.97
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [3] IoU 59.62
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [4] IoU 47.03
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [5] IoU 61.80
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [6] IoU 76.23
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [7] IoU 69.85
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [8] IoU 78.28
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [9] IoU 25.32
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [10] IoU 22.16
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [11] IoU 34.63
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [12] IoU 75.12
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [13] IoU 55.44
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [14] IoU 65.15
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [15] IoU 71.53
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [16] IoU 33.41
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [17] IoU 36.77
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [18] IoU 39.37
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [19] IoU 62.23
+[09/24/2022 21:13:47][INFO] -  [Test] -  class [20] IoU 46.43
+[09/24/2022 21:13:49][INFO] -  <<Test>> - Epoch: 2.  MIoU: 53.61. [31mBest: 53.61/2[0m
+[09/24/2022 21:14:06][INFO] - Epoch/Iter [80: 3/ 20]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.6012 (0.6515)	LR 0.00096 	
+[09/24/2022 21:14:22][INFO] - Epoch/Iter [80: 3/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.7306 (0.7857)	LR 0.00096 	
+[09/24/2022 21:14:38][INFO] - Epoch/Iter [80: 3/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3788 (0.7187)	LR 0.00096 	
+[09/24/2022 21:14:56][INFO] - Epoch/Iter [80: 3/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.7808 (0.7345)	LR 0.00096 	
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [0] IoU 88.64
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [1] IoU 68.03
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [2] IoU 30.64
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [3] IoU 74.20
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [4] IoU 39.62
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [5] IoU 60.47
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [6] IoU 84.08
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [7] IoU 75.93
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [8] IoU 80.18
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [9] IoU 8.63
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [10] IoU 52.89
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [11] IoU 40.78
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [12] IoU 77.97
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [13] IoU 61.58
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [14] IoU 66.51
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [15] IoU 74.72
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [16] IoU 37.78
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [17] IoU 61.21
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [18] IoU 38.39
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [19] IoU 68.40
+[09/24/2022 21:15:50][INFO] -  [Test] -  class [20] IoU 58.76
+[09/24/2022 21:15:52][INFO] -  <<Test>> - Epoch: 3.  MIoU: 59.50. [31mBest: 59.50/3[0m
+[09/24/2022 21:16:10][INFO] - Epoch/Iter [80: 4/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3501 (0.5385)	LR 0.00095 	
+[09/24/2022 21:16:26][INFO] - Epoch/Iter [80: 4/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.6687 (0.7796)	LR 0.00095 	
+[09/24/2022 21:16:42][INFO] - Epoch/Iter [80: 4/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.4493 (0.5654)	LR 0.00095 	
+[09/24/2022 21:16:59][INFO] - Epoch/Iter [80: 4/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.8916 (0.6359)	LR 0.00094 	
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [0] IoU 88.87
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [1] IoU 65.57
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [2] IoU 29.93
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [3] IoU 72.19
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [4] IoU 48.67
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [5] IoU 66.19
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [6] IoU 73.99
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [7] IoU 78.06
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [8] IoU 78.38
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [9] IoU 27.35
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [10] IoU 64.85
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [11] IoU 45.40
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [12] IoU 76.21
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [13] IoU 66.99
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [14] IoU 73.56
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [15] IoU 74.65
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [16] IoU 42.50
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [17] IoU 69.78
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [18] IoU 37.08
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [19] IoU 70.43
+[09/24/2022 21:17:53][INFO] -  [Test] -  class [20] IoU 58.15
+[09/24/2022 21:17:55][INFO] -  <<Test>> - Epoch: 4.  MIoU: 62.32. [31mBest: 62.32/4[0m
+[09/24/2022 21:18:13][INFO] - Epoch/Iter [80: 5/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.6929 (0.6689)	LR 0.00094 	
+[09/24/2022 21:18:29][INFO] - Epoch/Iter [80: 5/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.4028 (0.6408)	LR 0.00094 	
+[09/24/2022 21:18:45][INFO] - Epoch/Iter [80: 5/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.5514 (0.6154)	LR 0.00094 	
+[09/24/2022 21:19:02][INFO] - Epoch/Iter [80: 5/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.6462 (0.5656)	LR 0.00093 	
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [0] IoU 88.57
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [1] IoU 58.47
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [2] IoU 34.17
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [3] IoU 71.74
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [4] IoU 44.08
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [5] IoU 72.73
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [6] IoU 78.85
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [7] IoU 72.42
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [8] IoU 78.35
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [9] IoU 22.93
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [10] IoU 66.16
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [11] IoU 49.58
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [12] IoU 70.95
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [13] IoU 70.26
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [14] IoU 67.83
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [15] IoU 76.02
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [16] IoU 45.27
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [17] IoU 70.00
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [18] IoU 32.51
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [19] IoU 75.78
+[09/24/2022 21:19:56][INFO] -  [Test] -  class [20] IoU 63.19
+[09/24/2022 21:19:59][INFO] -  <<Test>> - Epoch: 5.  MIoU: 62.37. [31mBest: 62.37/5[0m
+[09/24/2022 21:20:16][INFO] - Epoch/Iter [80: 6/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.4016 (0.5093)	LR 0.00093 	
+[09/24/2022 21:20:32][INFO] - Epoch/Iter [80: 6/ 40]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.6059 (0.5236)	LR 0.00093 	
+[09/24/2022 21:20:48][INFO] - Epoch/Iter [80: 6/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.6014 (0.5266)	LR 0.00092 	
+[09/24/2022 21:21:06][INFO] - Epoch/Iter [80: 6/ 82]	Data 0.00 (0.00)	Time 0.65 (0.79)	Loss 0.7143 (0.6499)	LR 0.00092 	
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [0] IoU 90.49
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [1] IoU 77.92
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [2] IoU 33.01
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [3] IoU 79.24
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [4] IoU 59.28
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [5] IoU 69.07
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [6] IoU 84.38
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [7] IoU 74.34
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [8] IoU 82.70
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [9] IoU 23.19
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [10] IoU 69.86
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [11] IoU 28.32
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [12] IoU 78.19
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [13] IoU 70.68
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [14] IoU 62.15
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [15] IoU 75.82
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [16] IoU 38.89
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [17] IoU 66.75
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [18] IoU 29.92
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [19] IoU 81.45
+[09/24/2022 21:22:00][INFO] -  [Test] -  class [20] IoU 65.28
+[09/24/2022 21:22:03][INFO] -  <<Test>> - Epoch: 6.  MIoU: 63.85. [31mBest: 63.85/6[0m
+[09/24/2022 21:22:20][INFO] - Epoch/Iter [80: 7/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3341 (0.5054)	LR 0.00092 	
+[09/24/2022 21:22:36][INFO] - Epoch/Iter [80: 7/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.4211 (0.3917)	LR 0.00092 	
+[09/24/2022 21:22:52][INFO] - Epoch/Iter [80: 7/ 60]	Data 0.00 (0.00)	Time 0.80 (0.81)	Loss 0.2966 (0.4904)	LR 0.00091 	
+[09/24/2022 21:23:10][INFO] - Epoch/Iter [80: 7/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.6135 (0.5180)	LR 0.00091 	
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [0] IoU 90.58
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [1] IoU 76.12
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [2] IoU 35.71
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [3] IoU 77.77
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [4] IoU 55.55
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [5] IoU 69.90
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [6] IoU 80.24
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [7] IoU 76.53
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [8] IoU 81.08
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [9] IoU 24.77
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [10] IoU 70.73
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [11] IoU 49.90
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [12] IoU 78.16
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [13] IoU 74.85
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [14] IoU 68.48
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [15] IoU 76.86
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [16] IoU 48.57
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [17] IoU 70.65
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [18] IoU 24.01
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [19] IoU 75.36
+[09/24/2022 21:24:04][INFO] -  [Test] -  class [20] IoU 59.98
+[09/24/2022 21:24:07][INFO] -  <<Test>> - Epoch: 7.  MIoU: 65.04. [31mBest: 65.04/7[0m
+[09/24/2022 21:24:24][INFO] - Epoch/Iter [80: 8/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.5126 (0.4892)	LR 0.00091 	
+[09/24/2022 21:24:40][INFO] - Epoch/Iter [80: 8/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2879 (0.3874)	LR 0.00090 	
+[09/24/2022 21:24:56][INFO] - Epoch/Iter [80: 8/ 60]	Data 0.00 (0.00)	Time 0.80 (0.81)	Loss 0.5446 (0.5000)	LR 0.00090 	
+[09/24/2022 21:25:13][INFO] - Epoch/Iter [80: 8/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.6450 (0.5614)	LR 0.00090 	
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [0] IoU 89.39
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [1] IoU 76.24
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [2] IoU 35.74
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [3] IoU 76.33
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [4] IoU 53.98
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [5] IoU 64.99
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [6] IoU 85.03
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [7] IoU 74.91
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [8] IoU 73.79
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [9] IoU 23.03
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [10] IoU 42.58
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [11] IoU 28.12
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [12] IoU 78.14
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [13] IoU 45.31
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [14] IoU 63.67
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [15] IoU 77.32
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [16] IoU 47.56
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [17] IoU 72.82
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [18] IoU 29.32
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [19] IoU 41.42
+[09/24/2022 21:26:07][INFO] -  [Test] -  class [20] IoU 65.14
+[09/24/2022 21:26:09][INFO] -  <<Test>> - Epoch: 8.  MIoU: 59.28. [31mBest: 65.04/7[0m
+[09/24/2022 21:26:26][INFO] - Epoch/Iter [80: 9/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.5396 (0.4829)	LR 0.00090 	
+[09/24/2022 21:26:42][INFO] - Epoch/Iter [80: 9/ 40]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.3176 (0.4546)	LR 0.00089 	
+[09/24/2022 21:26:58][INFO] - Epoch/Iter [80: 9/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.4955 (0.4625)	LR 0.00089 	
+[09/24/2022 21:27:16][INFO] - Epoch/Iter [80: 9/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.7677 (0.4708)	LR 0.00089 	
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [0] IoU 90.10
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [1] IoU 75.01
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [2] IoU 24.76
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [3] IoU 79.96
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [4] IoU 57.12
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [5] IoU 63.54
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [6] IoU 82.15
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [7] IoU 73.44
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [8] IoU 84.54
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [9] IoU 26.46
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [10] IoU 65.86
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [11] IoU 39.77
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [12] IoU 80.86
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [13] IoU 68.41
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [14] IoU 68.75
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [15] IoU 77.75
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [16] IoU 47.99
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [17] IoU 71.79
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [18] IoU 31.66
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [19] IoU 79.78
+[09/24/2022 21:28:10][INFO] -  [Test] -  class [20] IoU 60.91
+[09/24/2022 21:28:11][INFO] -  <<Test>> - Epoch: 9.  MIoU: 64.32. [31mBest: 65.04/7[0m
+[09/24/2022 21:28:29][INFO] - Epoch/Iter [80:10/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.3697 (0.3843)	LR 0.00088 	
+[09/24/2022 21:28:45][INFO] - Epoch/Iter [80:10/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.4545 (0.3860)	LR 0.00088 	
+[09/24/2022 21:29:01][INFO] - Epoch/Iter [80:10/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.3499 (0.4182)	LR 0.00088 	
+[09/24/2022 21:29:18][INFO] - Epoch/Iter [80:10/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.3147 (0.5069)	LR 0.00088 	
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [0] IoU 90.78
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [1] IoU 77.27
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [2] IoU 32.18
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [3] IoU 77.15
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [4] IoU 49.48
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [5] IoU 68.69
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [6] IoU 82.20
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [7] IoU 77.67
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [8] IoU 86.02
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [9] IoU 24.91
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [10] IoU 76.36
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [11] IoU 52.97
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [12] IoU 80.41
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [13] IoU 73.57
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [14] IoU 68.68
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [15] IoU 76.64
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [16] IoU 49.69
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [17] IoU 73.33
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [18] IoU 32.78
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [19] IoU 78.66
+[09/24/2022 21:30:12][INFO] -  [Test] -  class [20] IoU 66.58
+[09/24/2022 21:30:14][INFO] -  <<Test>> - Epoch: 10.  MIoU: 66.48. [31mBest: 66.48/10[0m
+[09/24/2022 21:30:31][INFO] - Epoch/Iter [80:11/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.6831 (0.4355)	LR 0.00087 	
+[09/24/2022 21:30:47][INFO] - Epoch/Iter [80:11/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.5231 (0.3667)	LR 0.00087 	
+[09/24/2022 21:31:03][INFO] - Epoch/Iter [80:11/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2103 (0.3484)	LR 0.00087 	
+[09/24/2022 21:31:21][INFO] - Epoch/Iter [80:11/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.4021 (0.3667)	LR 0.00086 	
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [0] IoU 90.71
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [1] IoU 79.19
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [2] IoU 35.05
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [3] IoU 78.86
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [4] IoU 55.62
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [5] IoU 70.11
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [6] IoU 81.99
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [7] IoU 78.15
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [8] IoU 82.76
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [9] IoU 24.52
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [10] IoU 76.51
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [11] IoU 37.27
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [12] IoU 77.71
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [13] IoU 73.86
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [14] IoU 69.28
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [15] IoU 77.19
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [16] IoU 46.48
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [17] IoU 70.56
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [18] IoU 27.90
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [19] IoU 78.82
+[09/24/2022 21:32:15][INFO] -  [Test] -  class [20] IoU 61.75
+[09/24/2022 21:32:16][INFO] -  <<Test>> - Epoch: 11.  MIoU: 65.44. [31mBest: 66.48/10[0m
+[09/24/2022 21:32:33][INFO] - Epoch/Iter [80:12/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2410 (0.3513)	LR 0.00086 	
+[09/24/2022 21:32:49][INFO] - Epoch/Iter [80:12/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3690 (0.3501)	LR 0.00086 	
+[09/24/2022 21:33:05][INFO] - Epoch/Iter [80:12/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2491 (0.3982)	LR 0.00086 	
+[09/24/2022 21:33:23][INFO] - Epoch/Iter [80:12/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.2462 (0.3612)	LR 0.00085 	
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [0] IoU 90.79
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [1] IoU 79.79
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [2] IoU 32.53
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [3] IoU 77.25
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [4] IoU 50.94
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [5] IoU 69.35
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [6] IoU 82.41
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [7] IoU 79.52
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [8] IoU 84.47
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [9] IoU 24.38
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [10] IoU 77.37
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [11] IoU 38.87
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [12] IoU 77.58
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [13] IoU 77.16
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [14] IoU 69.01
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [15] IoU 77.17
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [16] IoU 47.96
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [17] IoU 68.85
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [18] IoU 40.06
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [19] IoU 78.80
+[09/24/2022 21:34:16][INFO] -  [Test] -  class [20] IoU 64.64
+[09/24/2022 21:34:18][INFO] -  <<Test>> - Epoch: 12.  MIoU: 66.14. [31mBest: 66.48/10[0m
+[09/24/2022 21:34:35][INFO] - Epoch/Iter [80:13/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.3898 (0.3767)	LR 0.00085 	
+[09/24/2022 21:34:51][INFO] - Epoch/Iter [80:13/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2474 (0.3254)	LR 0.00085 	
+[09/24/2022 21:35:07][INFO] - Epoch/Iter [80:13/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2345 (0.3548)	LR 0.00084 	
+[09/24/2022 21:35:24][INFO] - Epoch/Iter [80:13/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1974 (0.3362)	LR 0.00084 	
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [0] IoU 90.95
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [1] IoU 78.42
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [2] IoU 32.30
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [3] IoU 80.49
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [4] IoU 56.94
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [5] IoU 69.76
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [6] IoU 84.77
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [7] IoU 72.81
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [8] IoU 86.71
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [9] IoU 25.58
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [10] IoU 71.37
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [11] IoU 48.19
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [12] IoU 82.98
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [13] IoU 70.78
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [14] IoU 68.73
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [15] IoU 78.35
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [16] IoU 50.33
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [17] IoU 73.09
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [18] IoU 38.16
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [19] IoU 81.98
+[09/24/2022 21:36:18][INFO] -  [Test] -  class [20] IoU 55.55
+[09/24/2022 21:36:21][INFO] -  <<Test>> - Epoch: 13.  MIoU: 66.58. [31mBest: 66.58/13[0m
+[09/24/2022 21:36:38][INFO] - Epoch/Iter [80:14/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3236 (0.2922)	LR 0.00084 	
+[09/24/2022 21:36:54][INFO] - Epoch/Iter [80:14/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2852 (0.3104)	LR 0.00084 	
+[09/24/2022 21:37:10][INFO] - Epoch/Iter [80:14/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.3882 (0.3174)	LR 0.00083 	
+[09/24/2022 21:37:27][INFO] - Epoch/Iter [80:14/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2855 (0.2911)	LR 0.00083 	
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [0] IoU 90.81
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [1] IoU 78.95
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [2] IoU 28.89
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [3] IoU 77.80
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [4] IoU 49.52
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [5] IoU 72.46
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [6] IoU 85.79
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [7] IoU 80.07
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [8] IoU 86.07
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [9] IoU 26.21
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [10] IoU 72.77
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [11] IoU 40.72
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [12] IoU 82.57
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [13] IoU 74.01
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [14] IoU 73.44
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [15] IoU 79.18
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [16] IoU 46.51
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [17] IoU 74.11
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [18] IoU 34.36
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [19] IoU 83.96
+[09/24/2022 21:38:21][INFO] -  [Test] -  class [20] IoU 63.50
+[09/24/2022 21:38:23][INFO] -  <<Test>> - Epoch: 14.  MIoU: 66.75. [31mBest: 66.75/14[0m
+[09/24/2022 21:38:40][INFO] - Epoch/Iter [80:15/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2425 (0.2880)	LR 0.00083 	
+[09/24/2022 21:38:56][INFO] - Epoch/Iter [80:15/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2756 (0.3148)	LR 0.00082 	
+[09/24/2022 21:39:12][INFO] - Epoch/Iter [80:15/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2456 (0.3060)	LR 0.00082 	
+[09/24/2022 21:39:30][INFO] - Epoch/Iter [80:15/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.2267 (0.2865)	LR 0.00082 	
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [0] IoU 90.86
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [1] IoU 75.87
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [2] IoU 29.18
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [3] IoU 80.55
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [4] IoU 55.02
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [5] IoU 72.40
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [6] IoU 85.63
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [7] IoU 78.42
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [8] IoU 86.05
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [9] IoU 23.60
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [10] IoU 77.15
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [11] IoU 32.68
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [12] IoU 82.42
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [13] IoU 75.55
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [14] IoU 75.11
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [15] IoU 78.51
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [16] IoU 49.86
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [17] IoU 77.43
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [18] IoU 32.06
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [19] IoU 83.04
+[09/24/2022 21:40:23][INFO] -  [Test] -  class [20] IoU 68.32
+[09/24/2022 21:40:26][INFO] -  <<Test>> - Epoch: 15.  MIoU: 67.13. [31mBest: 67.13/15[0m
+[09/24/2022 21:40:43][INFO] - Epoch/Iter [80:16/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.3315 (0.2682)	LR 0.00082 	
+[09/24/2022 21:40:59][INFO] - Epoch/Iter [80:16/ 40]	Data 0.00 (0.00)	Time 0.80 (0.81)	Loss 0.2470 (0.2584)	LR 0.00081 	
+[09/24/2022 21:41:15][INFO] - Epoch/Iter [80:16/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1939 (0.3021)	LR 0.00081 	
+[09/24/2022 21:41:33][INFO] - Epoch/Iter [80:16/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.2378 (0.3267)	LR 0.00081 	
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [0] IoU 91.68
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [1] IoU 81.00
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [2] IoU 39.92
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [3] IoU 81.37
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [4] IoU 53.98
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [5] IoU 73.22
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [6] IoU 81.31
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [7] IoU 79.07
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [8] IoU 86.64
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [9] IoU 25.52
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [10] IoU 76.97
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [11] IoU 41.74
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [12] IoU 80.58
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [13] IoU 76.72
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [14] IoU 73.06
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [15] IoU 78.19
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [16] IoU 51.84
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [17] IoU 76.13
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [18] IoU 35.98
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [19] IoU 80.57
+[09/24/2022 21:42:27][INFO] -  [Test] -  class [20] IoU 68.42
+[09/24/2022 21:42:29][INFO] -  <<Test>> - Epoch: 16.  MIoU: 68.28. [31mBest: 68.28/16[0m
+[09/24/2022 21:42:46][INFO] - Epoch/Iter [80:17/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2355 (0.2676)	LR 0.00080 	
+[09/24/2022 21:43:03][INFO] - Epoch/Iter [80:17/ 40]	Data 0.00 (0.00)	Time 0.81 (0.81)	Loss 0.2039 (0.2955)	LR 0.00080 	
+[09/24/2022 21:43:19][INFO] - Epoch/Iter [80:17/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2297 (0.3276)	LR 0.00080 	
+[09/24/2022 21:43:36][INFO] - Epoch/Iter [80:17/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.2198 (0.3017)	LR 0.00080 	
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [0] IoU 91.35
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [1] IoU 80.79
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [2] IoU 34.95
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [3] IoU 77.91
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [4] IoU 50.44
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [5] IoU 72.13
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [6] IoU 83.39
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [7] IoU 79.73
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [8] IoU 83.49
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [9] IoU 24.73
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [10] IoU 72.77
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [11] IoU 38.51
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [12] IoU 81.28
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [13] IoU 74.41
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [14] IoU 71.27
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [15] IoU 79.30
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [16] IoU 50.34
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [17] IoU 72.57
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [18] IoU 34.00
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [19] IoU 82.37
+[09/24/2022 21:44:30][INFO] -  [Test] -  class [20] IoU 67.41
+[09/24/2022 21:44:31][INFO] -  <<Test>> - Epoch: 17.  MIoU: 66.82. [31mBest: 68.28/16[0m
+[09/24/2022 21:44:49][INFO] - Epoch/Iter [80:18/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.3701 (0.2708)	LR 0.00079 	
+[09/24/2022 21:45:05][INFO] - Epoch/Iter [80:18/ 40]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.2291 (0.2273)	LR 0.00079 	
+[09/24/2022 21:45:21][INFO] - Epoch/Iter [80:18/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2545 (0.3049)	LR 0.00079 	
+[09/24/2022 21:45:38][INFO] - Epoch/Iter [80:18/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.3641 (0.2974)	LR 0.00078 	
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [0] IoU 91.48
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [1] IoU 82.24
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [2] IoU 33.71
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [3] IoU 78.55
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [4] IoU 57.59
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [5] IoU 70.85
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [6] IoU 84.87
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [7] IoU 82.83
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [8] IoU 84.01
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [9] IoU 24.36
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [10] IoU 80.19
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [11] IoU 40.49
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [12] IoU 83.58
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [13] IoU 79.81
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [14] IoU 74.33
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [15] IoU 78.44
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [16] IoU 52.21
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [17] IoU 75.68
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [18] IoU 25.14
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [19] IoU 80.69
+[09/24/2022 21:46:32][INFO] -  [Test] -  class [20] IoU 64.93
+[09/24/2022 21:46:33][INFO] -  <<Test>> - Epoch: 18.  MIoU: 67.90. [31mBest: 68.28/16[0m
+[09/24/2022 21:46:51][INFO] - Epoch/Iter [80:19/ 20]	Data 0.00 (0.00)	Time 0.82 (0.80)	Loss 0.3322 (0.3003)	LR 0.00078 	
+[09/24/2022 21:47:07][INFO] - Epoch/Iter [80:19/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2692 (0.2384)	LR 0.00078 	
+[09/24/2022 21:47:23][INFO] - Epoch/Iter [80:19/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2218 (0.2600)	LR 0.00078 	
+[09/24/2022 21:47:40][INFO] - Epoch/Iter [80:19/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.3364 (0.2587)	LR 0.00077 	
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [0] IoU 91.40
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [1] IoU 82.47
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [2] IoU 33.52
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [3] IoU 81.82
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [4] IoU 54.15
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [5] IoU 69.09
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [6] IoU 83.64
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [7] IoU 80.86
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [8] IoU 86.20
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [9] IoU 28.55
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [10] IoU 64.68
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [11] IoU 37.84
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [12] IoU 83.75
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [13] IoU 67.39
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [14] IoU 75.51
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [15] IoU 79.10
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [16] IoU 51.69
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [17] IoU 76.84
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [18] IoU 25.72
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [19] IoU 79.56
+[09/24/2022 21:48:34][INFO] -  [Test] -  class [20] IoU 67.68
+[09/24/2022 21:48:35][INFO] -  <<Test>> - Epoch: 19.  MIoU: 66.74. [31mBest: 68.28/16[0m
+[09/24/2022 21:48:53][INFO] - Epoch/Iter [80:20/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.6243 (0.2797)	LR 0.00077 	
+[09/24/2022 21:49:09][INFO] - Epoch/Iter [80:20/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.2994 (0.2726)	LR 0.00077 	
+[09/24/2022 21:49:25][INFO] - Epoch/Iter [80:20/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2353 (0.2223)	LR 0.00076 	
+[09/24/2022 21:49:42][INFO] - Epoch/Iter [80:20/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2384 (0.2921)	LR 0.00076 	
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [0] IoU 91.03
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [1] IoU 80.49
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [2] IoU 31.67
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [3] IoU 82.37
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [4] IoU 56.49
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [5] IoU 71.88
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [6] IoU 83.60
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [7] IoU 78.26
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [8] IoU 86.84
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [9] IoU 29.91
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [10] IoU 78.55
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [11] IoU 39.32
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [12] IoU 83.12
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [13] IoU 79.06
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [14] IoU 74.58
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [15] IoU 79.07
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [16] IoU 53.42
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [17] IoU 63.56
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [18] IoU 31.29
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [19] IoU 80.39
+[09/24/2022 21:50:36][INFO] -  [Test] -  class [20] IoU 68.39
+[09/24/2022 21:50:37][INFO] -  <<Test>> - Epoch: 20.  MIoU: 67.77. [31mBest: 68.28/16[0m
+[09/24/2022 21:50:54][INFO] - Epoch/Iter [80:21/ 20]	Data 0.00 (0.00)	Time 0.82 (0.81)	Loss 0.2456 (0.2488)	LR 0.00076 	
+[09/24/2022 21:51:10][INFO] - Epoch/Iter [80:21/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3107 (0.2541)	LR 0.00075 	
+[09/24/2022 21:51:26][INFO] - Epoch/Iter [80:21/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1557 (0.2196)	LR 0.00075 	
+[09/24/2022 21:51:44][INFO] - Epoch/Iter [80:21/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.2644 (0.2559)	LR 0.00075 	
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [0] IoU 91.56
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [1] IoU 80.00
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [2] IoU 33.08
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [3] IoU 82.33
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [4] IoU 57.00
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [5] IoU 73.09
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [6] IoU 84.88
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [7] IoU 80.74
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [8] IoU 86.99
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [9] IoU 30.46
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [10] IoU 78.11
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [11] IoU 35.35
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [12] IoU 82.90
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [13] IoU 79.47
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [14] IoU 77.63
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [15] IoU 79.59
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [16] IoU 53.72
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [17] IoU 76.40
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [18] IoU 35.86
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [19] IoU 79.73
+[09/24/2022 21:52:37][INFO] -  [Test] -  class [20] IoU 68.47
+[09/24/2022 21:52:40][INFO] -  <<Test>> - Epoch: 21.  MIoU: 68.92. [31mBest: 68.92/21[0m
+[09/24/2022 21:52:57][INFO] - Epoch/Iter [80:22/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1965 (0.2389)	LR 0.00075 	
+[09/24/2022 21:53:13][INFO] - Epoch/Iter [80:22/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2134 (0.2205)	LR 0.00074 	
+[09/24/2022 21:53:29][INFO] - Epoch/Iter [80:22/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1839 (0.2536)	LR 0.00074 	
+[09/24/2022 21:53:46][INFO] - Epoch/Iter [80:22/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.5047 (0.2800)	LR 0.00074 	
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [0] IoU 91.59
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [1] IoU 83.52
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [2] IoU 35.67
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [3] IoU 80.99
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [4] IoU 58.75
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [5] IoU 72.89
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [6] IoU 89.32
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [7] IoU 80.90
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [8] IoU 86.77
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [9] IoU 28.54
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [10] IoU 78.62
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [11] IoU 31.75
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [12] IoU 82.49
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [13] IoU 79.54
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [14] IoU 73.21
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [15] IoU 79.87
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [16] IoU 52.64
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [17] IoU 75.73
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [18] IoU 31.51
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [19] IoU 83.66
+[09/24/2022 21:54:40][INFO] -  [Test] -  class [20] IoU 69.29
+[09/24/2022 21:54:41][INFO] -  <<Test>> - Epoch: 22.  MIoU: 68.92. [31mBest: 68.92/21[0m
+[09/24/2022 21:54:58][INFO] - Epoch/Iter [80:23/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3016 (0.2540)	LR 0.00073 	
+[09/24/2022 21:55:14][INFO] - Epoch/Iter [80:23/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.3320 (0.2301)	LR 0.00073 	
+[09/24/2022 21:55:30][INFO] - Epoch/Iter [80:23/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.2403 (0.3349)	LR 0.00073 	
+[09/24/2022 21:55:48][INFO] - Epoch/Iter [80:23/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.3262 (0.5175)	LR 0.00073 	
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [0] IoU 90.98
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [1] IoU 76.20
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [2] IoU 30.45
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [3] IoU 82.94
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [4] IoU 56.82
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [5] IoU 71.57
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [6] IoU 85.88
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [7] IoU 82.35
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [8] IoU 85.09
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [9] IoU 26.10
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [10] IoU 71.96
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [11] IoU 44.17
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [12] IoU 76.85
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [13] IoU 74.40
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [14] IoU 75.54
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [15] IoU 77.33
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [16] IoU 53.45
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [17] IoU 72.42
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [18] IoU 37.96
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [19] IoU 81.47
+[09/24/2022 21:56:42][INFO] -  [Test] -  class [20] IoU 59.76
+[09/24/2022 21:56:43][INFO] -  <<Test>> - Epoch: 23.  MIoU: 67.32. [31mBest: 68.92/21[0m
+[09/24/2022 21:57:00][INFO] - Epoch/Iter [80:24/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.3119 (0.2442)	LR 0.00072 	
+[09/24/2022 21:57:16][INFO] - Epoch/Iter [80:24/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2464 (0.2308)	LR 0.00072 	
+[09/24/2022 21:57:32][INFO] - Epoch/Iter [80:24/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2302 (0.2761)	LR 0.00072 	
+[09/24/2022 21:57:49][INFO] - Epoch/Iter [80:24/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.3167 (0.2289)	LR 0.00071 	
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [0] IoU 91.88
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [1] IoU 81.44
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [2] IoU 37.45
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [3] IoU 81.38
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [4] IoU 60.32
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [5] IoU 68.73
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [6] IoU 87.37
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [7] IoU 82.77
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [8] IoU 87.75
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [9] IoU 28.85
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [10] IoU 75.89
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [11] IoU 45.48
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [12] IoU 82.74
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [13] IoU 76.71
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [14] IoU 76.68
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [15] IoU 79.64
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [16] IoU 52.97
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [17] IoU 73.93
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [18] IoU 34.40
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [19] IoU 82.78
+[09/24/2022 21:58:43][INFO] -  [Test] -  class [20] IoU 70.20
+[09/24/2022 21:58:46][INFO] -  <<Test>> - Epoch: 24.  MIoU: 69.49. [31mBest: 69.49/24[0m
+[09/24/2022 21:59:03][INFO] - Epoch/Iter [80:25/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.4715 (0.2863)	LR 0.00071 	
+[09/24/2022 21:59:19][INFO] - Epoch/Iter [80:25/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2398 (0.2294)	LR 0.00071 	
+[09/24/2022 21:59:35][INFO] - Epoch/Iter [80:25/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2008 (0.2243)	LR 0.00071 	
+[09/24/2022 21:59:52][INFO] - Epoch/Iter [80:25/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2414 (0.2343)	LR 0.00070 	
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [0] IoU 91.54
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [1] IoU 82.26
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [2] IoU 32.22
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [3] IoU 82.40
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [4] IoU 60.16
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [5] IoU 71.89
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [6] IoU 83.96
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [7] IoU 80.92
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [8] IoU 88.21
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [9] IoU 26.04
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [10] IoU 78.96
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [11] IoU 33.99
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [12] IoU 83.66
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [13] IoU 79.93
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [14] IoU 74.73
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [15] IoU 80.28
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [16] IoU 54.32
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [17] IoU 76.12
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [18] IoU 32.47
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [19] IoU 81.23
+[09/24/2022 22:00:46][INFO] -  [Test] -  class [20] IoU 66.86
+[09/24/2022 22:00:47][INFO] -  <<Test>> - Epoch: 25.  MIoU: 68.67. [31mBest: 69.49/24[0m
+[09/24/2022 22:01:04][INFO] - Epoch/Iter [80:26/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1648 (0.2341)	LR 0.00070 	
+[09/24/2022 22:01:20][INFO] - Epoch/Iter [80:26/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2112 (0.2087)	LR 0.00070 	
+[09/24/2022 22:01:36][INFO] - Epoch/Iter [80:26/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2411 (0.2349)	LR 0.00069 	
+[09/24/2022 22:01:54][INFO] - Epoch/Iter [80:26/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2861 (0.2332)	LR 0.00069 	
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [0] IoU 91.94
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [1] IoU 83.18
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [2] IoU 35.94
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [3] IoU 83.49
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [4] IoU 59.42
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [5] IoU 73.13
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [6] IoU 85.07
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [7] IoU 82.72
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [8] IoU 88.17
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [9] IoU 27.43
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [10] IoU 70.52
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [11] IoU 35.15
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [12] IoU 83.39
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [13] IoU 74.01
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [14] IoU 78.14
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [15] IoU 80.63
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [16] IoU 55.49
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [17] IoU 77.83
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [18] IoU 40.68
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [19] IoU 81.33
+[09/24/2022 22:02:47][INFO] -  [Test] -  class [20] IoU 69.39
+[09/24/2022 22:02:49][INFO] -  <<Test>> - Epoch: 26.  MIoU: 69.38. [31mBest: 69.49/24[0m
+[09/24/2022 22:03:06][INFO] - Epoch/Iter [80:27/ 20]	Data 0.00 (0.00)	Time 0.77 (0.79)	Loss 0.2480 (0.2316)	LR 0.00069 	
+[09/24/2022 22:03:22][INFO] - Epoch/Iter [80:27/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2206 (0.2076)	LR 0.00068 	
+[09/24/2022 22:03:38][INFO] - Epoch/Iter [80:27/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1845 (0.2321)	LR 0.00068 	
+[09/24/2022 22:03:55][INFO] - Epoch/Iter [80:27/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2296 (0.2391)	LR 0.00068 	
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [0] IoU 91.65
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [1] IoU 81.11
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [2] IoU 34.02
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [3] IoU 83.35
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [4] IoU 56.03
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [5] IoU 70.64
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [6] IoU 86.69
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [7] IoU 80.22
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [8] IoU 88.93
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [9] IoU 27.19
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [10] IoU 77.45
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [11] IoU 40.32
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [12] IoU 84.50
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [13] IoU 78.63
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [14] IoU 75.76
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [15] IoU 80.48
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [16] IoU 48.70
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [17] IoU 80.09
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [18] IoU 36.44
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [19] IoU 83.62
+[09/24/2022 22:04:49][INFO] -  [Test] -  class [20] IoU 69.18
+[09/24/2022 22:04:50][INFO] -  <<Test>> - Epoch: 27.  MIoU: 69.29. [31mBest: 69.49/24[0m
+[09/24/2022 22:05:07][INFO] - Epoch/Iter [80:28/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.4849 (0.2220)	LR 0.00068 	
+[09/24/2022 22:05:23][INFO] - Epoch/Iter [80:28/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.2646 (0.2191)	LR 0.00067 	
+[09/24/2022 22:05:39][INFO] - Epoch/Iter [80:28/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1612 (0.2147)	LR 0.00067 	
+[09/24/2022 22:05:57][INFO] - Epoch/Iter [80:28/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2810 (0.2339)	LR 0.00067 	
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [0] IoU 91.92
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [1] IoU 81.12
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [2] IoU 34.33
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [3] IoU 84.23
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [4] IoU 59.62
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [5] IoU 70.68
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [6] IoU 85.82
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [7] IoU 81.08
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [8] IoU 88.36
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [9] IoU 28.89
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [10] IoU 76.40
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [11] IoU 45.03
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [12] IoU 84.28
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [13] IoU 76.14
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [14] IoU 76.90
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [15] IoU 80.65
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [16] IoU 51.72
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [17] IoU 78.06
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [18] IoU 36.53
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [19] IoU 81.55
+[09/24/2022 22:06:50][INFO] -  [Test] -  class [20] IoU 61.31
+[09/24/2022 22:06:52][INFO] -  <<Test>> - Epoch: 28.  MIoU: 69.27. [31mBest: 69.49/24[0m
+[09/24/2022 22:07:09][INFO] - Epoch/Iter [80:29/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2371 (0.1954)	LR 0.00066 	
+[09/24/2022 22:07:25][INFO] - Epoch/Iter [80:29/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1593 (0.2130)	LR 0.00066 	
+[09/24/2022 22:07:40][INFO] - Epoch/Iter [80:29/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1615 (0.2195)	LR 0.00066 	
+[09/24/2022 22:07:58][INFO] - Epoch/Iter [80:29/ 82]	Data 0.00 (0.00)	Time 0.65 (0.77)	Loss 0.1962 (0.2058)	LR 0.00066 	
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [0] IoU 92.09
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [1] IoU 82.45
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [2] IoU 37.69
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [3] IoU 83.89
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [4] IoU 58.50
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [5] IoU 71.99
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [6] IoU 85.53
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [7] IoU 82.16
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [8] IoU 89.00
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [9] IoU 27.44
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [10] IoU 79.26
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [11] IoU 43.56
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [12] IoU 84.49
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [13] IoU 79.26
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [14] IoU 75.69
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [15] IoU 80.64
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [16] IoU 52.61
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [17] IoU 78.04
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [18] IoU 40.80
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [19] IoU 80.93
+[09/24/2022 22:08:51][INFO] -  [Test] -  class [20] IoU 68.85
+[09/24/2022 22:08:54][INFO] -  <<Test>> - Epoch: 29.  MIoU: 70.23. [31mBest: 70.23/29[0m
+[09/24/2022 22:09:11][INFO] - Epoch/Iter [80:30/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2540 (0.1808)	LR 0.00065 	
+[09/24/2022 22:09:27][INFO] - Epoch/Iter [80:30/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.2198 (0.2115)	LR 0.00065 	
+[09/24/2022 22:09:43][INFO] - Epoch/Iter [80:30/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1742 (0.1918)	LR 0.00065 	
+[09/24/2022 22:10:01][INFO] - Epoch/Iter [80:30/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.2829 (0.2241)	LR 0.00064 	
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [0] IoU 91.89
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [1] IoU 81.77
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [2] IoU 36.87
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [3] IoU 84.04
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [4] IoU 59.41
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [5] IoU 73.17
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [6] IoU 85.93
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [7] IoU 82.52
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [8] IoU 86.36
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [9] IoU 28.33
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [10] IoU 80.25
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [11] IoU 32.56
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [12] IoU 83.23
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [13] IoU 80.24
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [14] IoU 76.18
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [15] IoU 80.28
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [16] IoU 56.30
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [17] IoU 78.09
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [18] IoU 36.90
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [19] IoU 80.83
+[09/24/2022 22:10:54][INFO] -  [Test] -  class [20] IoU 65.14
+[09/24/2022 22:10:56][INFO] -  <<Test>> - Epoch: 30.  MIoU: 69.54. [31mBest: 70.23/29[0m
+[09/24/2022 22:11:13][INFO] - Epoch/Iter [80:31/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1521 (0.1942)	LR 0.00064 	
+[09/24/2022 22:11:29][INFO] - Epoch/Iter [80:31/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.2030 (0.1992)	LR 0.00064 	
+[09/24/2022 22:11:45][INFO] - Epoch/Iter [80:31/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1921 (0.1931)	LR 0.00063 	
+[09/24/2022 22:12:02][INFO] - Epoch/Iter [80:31/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1564 (0.2082)	LR 0.00063 	
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [0] IoU 91.88
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [1] IoU 83.71
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [2] IoU 35.56
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [3] IoU 83.92
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [4] IoU 60.36
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [5] IoU 69.23
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [6] IoU 85.99
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [7] IoU 84.13
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [8] IoU 87.38
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [9] IoU 27.03
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [10] IoU 78.61
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [11] IoU 37.45
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [12] IoU 84.78
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [13] IoU 79.86
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [14] IoU 77.03
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [15] IoU 80.38
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [16] IoU 50.17
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [17] IoU 78.20
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [18] IoU 31.77
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [19] IoU 79.87
+[09/24/2022 22:12:56][INFO] -  [Test] -  class [20] IoU 68.86
+[09/24/2022 22:12:57][INFO] -  <<Test>> - Epoch: 31.  MIoU: 69.34. [31mBest: 70.23/29[0m
+[09/24/2022 22:13:14][INFO] - Epoch/Iter [80:32/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.3254 (0.1928)	LR 0.00063 	
+[09/24/2022 22:13:30][INFO] - Epoch/Iter [80:32/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1820 (0.1828)	LR 0.00063 	
+[09/24/2022 22:13:46][INFO] - Epoch/Iter [80:32/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2612 (0.2149)	LR 0.00062 	
+[09/24/2022 22:14:03][INFO] - Epoch/Iter [80:32/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1672 (0.1929)	LR 0.00062 	
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [0] IoU 92.14
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [1] IoU 84.25
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [2] IoU 37.71
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [3] IoU 83.97
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [4] IoU 60.28
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [5] IoU 73.60
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [6] IoU 86.16
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [7] IoU 84.16
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [8] IoU 89.81
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [9] IoU 26.28
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [10] IoU 79.58
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [11] IoU 38.80
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [12] IoU 85.16
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [13] IoU 81.25
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [14] IoU 74.11
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [15] IoU 80.84
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [16] IoU 57.19
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [17] IoU 79.92
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [18] IoU 40.94
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [19] IoU 81.00
+[09/24/2022 22:14:57][INFO] -  [Test] -  class [20] IoU 68.42
+[09/24/2022 22:15:00][INFO] -  <<Test>> - Epoch: 32.  MIoU: 70.74. [31mBest: 70.74/32[0m
+[09/24/2022 22:15:17][INFO] - Epoch/Iter [80:33/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2409 (0.1975)	LR 0.00062 	
+[09/24/2022 22:15:33][INFO] - Epoch/Iter [80:33/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2797 (0.2054)	LR 0.00061 	
+[09/24/2022 22:15:49][INFO] - Epoch/Iter [80:33/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1202 (0.1866)	LR 0.00061 	
+[09/24/2022 22:16:06][INFO] - Epoch/Iter [80:33/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.1488 (0.1866)	LR 0.00061 	
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [0] IoU 92.23
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [1] IoU 83.84
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [2] IoU 37.19
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [3] IoU 84.81
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [4] IoU 59.96
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [5] IoU 74.52
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [6] IoU 86.98
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [7] IoU 82.34
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [8] IoU 87.78
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [9] IoU 27.18
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [10] IoU 76.46
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [11] IoU 39.52
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [12] IoU 83.73
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [13] IoU 77.90
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [14] IoU 76.30
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [15] IoU 80.53
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [16] IoU 57.07
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [17] IoU 77.69
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [18] IoU 31.33
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [19] IoU 83.63
+[09/24/2022 22:16:59][INFO] -  [Test] -  class [20] IoU 68.30
+[09/24/2022 22:17:01][INFO] -  <<Test>> - Epoch: 33.  MIoU: 69.97. [31mBest: 70.74/32[0m
+[09/24/2022 22:17:18][INFO] - Epoch/Iter [80:34/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1913 (0.1860)	LR 0.00060 	
+[09/24/2022 22:17:34][INFO] - Epoch/Iter [80:34/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1468 (0.1696)	LR 0.00060 	
+[09/24/2022 22:17:50][INFO] - Epoch/Iter [80:34/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2347 (0.1981)	LR 0.00060 	
+[09/24/2022 22:18:07][INFO] - Epoch/Iter [80:34/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1832 (0.1877)	LR 0.00060 	
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [0] IoU 92.09
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [1] IoU 84.75
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [2] IoU 37.95
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [3] IoU 83.82
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [4] IoU 60.41
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [5] IoU 73.84
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [6] IoU 87.13
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [7] IoU 82.92
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [8] IoU 87.47
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [9] IoU 27.31
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [10] IoU 76.72
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [11] IoU 32.61
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [12] IoU 83.88
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [13] IoU 77.84
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [14] IoU 75.70
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [15] IoU 80.58
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [16] IoU 52.18
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [17] IoU 76.98
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [18] IoU 37.07
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [19] IoU 83.86
+[09/24/2022 22:19:01][INFO] -  [Test] -  class [20] IoU 68.17
+[09/24/2022 22:19:02][INFO] -  <<Test>> - Epoch: 34.  MIoU: 69.68. [31mBest: 70.74/32[0m
+[09/24/2022 22:19:19][INFO] - Epoch/Iter [80:35/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1378 (0.1812)	LR 0.00059 	
+[09/24/2022 22:19:35][INFO] - Epoch/Iter [80:35/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1769 (0.1672)	LR 0.00059 	
+[09/24/2022 22:19:51][INFO] - Epoch/Iter [80:35/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2001 (0.1966)	LR 0.00059 	
+[09/24/2022 22:20:09][INFO] - Epoch/Iter [80:35/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1421 (0.1793)	LR 0.00058 	
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [0] IoU 92.28
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [1] IoU 84.13
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [2] IoU 38.50
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [3] IoU 84.31
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [4] IoU 59.75
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [5] IoU 72.18
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [6] IoU 83.95
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [7] IoU 80.16
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [8] IoU 87.30
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [9] IoU 27.43
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [10] IoU 76.92
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [11] IoU 44.50
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [12] IoU 84.08
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [13] IoU 78.55
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [14] IoU 74.18
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [15] IoU 80.51
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [16] IoU 55.65
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [17] IoU 77.94
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [18] IoU 35.60
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [19] IoU 81.87
+[09/24/2022 22:21:03][INFO] -  [Test] -  class [20] IoU 69.17
+[09/24/2022 22:21:04][INFO] -  <<Test>> - Epoch: 35.  MIoU: 69.95. [31mBest: 70.74/32[0m
+[09/24/2022 22:21:21][INFO] - Epoch/Iter [80:36/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1270 (0.1874)	LR 0.00058 	
+[09/24/2022 22:21:37][INFO] - Epoch/Iter [80:36/ 40]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1604 (0.1740)	LR 0.00058 	
+[09/24/2022 22:21:53][INFO] - Epoch/Iter [80:36/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1600 (0.1808)	LR 0.00058 	
+[09/24/2022 22:22:11][INFO] - Epoch/Iter [80:36/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1505 (0.1933)	LR 0.00057 	
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [0] IoU 92.24
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [1] IoU 83.51
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [2] IoU 35.98
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [3] IoU 84.69
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [4] IoU 59.00
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [5] IoU 73.20
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [6] IoU 84.95
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [7] IoU 82.41
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [8] IoU 88.88
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [9] IoU 27.21
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [10] IoU 78.86
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [11] IoU 45.34
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [12] IoU 83.82
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [13] IoU 80.05
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [14] IoU 75.10
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [15] IoU 80.95
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [16] IoU 55.70
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [17] IoU 77.79
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [18] IoU 38.68
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [19] IoU 81.62
+[09/24/2022 22:23:05][INFO] -  [Test] -  class [20] IoU 68.55
+[09/24/2022 22:23:06][INFO] -  <<Test>> - Epoch: 36.  MIoU: 70.41. [31mBest: 70.74/32[0m
+[09/24/2022 22:23:23][INFO] - Epoch/Iter [80:37/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.2040 (0.1899)	LR 0.00057 	
+[09/24/2022 22:23:39][INFO] - Epoch/Iter [80:37/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1539 (0.1722)	LR 0.00057 	
+[09/24/2022 22:23:55][INFO] - Epoch/Iter [80:37/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1985 (0.1822)	LR 0.00056 	
+[09/24/2022 22:24:12][INFO] - Epoch/Iter [80:37/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.2493 (0.1822)	LR 0.00056 	
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [0] IoU 92.02
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [1] IoU 84.27
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [2] IoU 37.83
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [3] IoU 83.85
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [4] IoU 58.87
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [5] IoU 74.39
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [6] IoU 86.06
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [7] IoU 80.94
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [8] IoU 87.04
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [9] IoU 26.67
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [10] IoU 75.18
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [11] IoU 37.53
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [12] IoU 83.34
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [13] IoU 77.32
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [14] IoU 72.51
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [15] IoU 80.70
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [16] IoU 56.73
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [17] IoU 74.84
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [18] IoU 32.86
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [19] IoU 81.66
+[09/24/2022 22:25:06][INFO] -  [Test] -  class [20] IoU 69.34
+[09/24/2022 22:25:07][INFO] -  <<Test>> - Epoch: 37.  MIoU: 69.24. [31mBest: 70.74/32[0m
+[09/24/2022 22:25:25][INFO] - Epoch/Iter [80:38/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1410 (0.1715)	LR 0.00056 	
+[09/24/2022 22:25:41][INFO] - Epoch/Iter [80:38/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1294 (0.1671)	LR 0.00055 	
+[09/24/2022 22:25:56][INFO] - Epoch/Iter [80:38/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1530 (0.2110)	LR 0.00055 	
+[09/24/2022 22:26:14][INFO] - Epoch/Iter [80:38/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1530 (0.2018)	LR 0.00055 	
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [0] IoU 92.27
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [1] IoU 84.36
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [2] IoU 37.48
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [3] IoU 83.32
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [4] IoU 60.54
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [5] IoU 74.35
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [6] IoU 88.79
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [7] IoU 81.61
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [8] IoU 86.67
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [9] IoU 28.09
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [10] IoU 77.65
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [11] IoU 37.09
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [12] IoU 83.98
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [13] IoU 80.96
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [14] IoU 77.45
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [15] IoU 80.88
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [16] IoU 57.68
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [17] IoU 77.49
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [18] IoU 35.16
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [19] IoU 85.77
+[09/24/2022 22:27:07][INFO] -  [Test] -  class [20] IoU 68.03
+[09/24/2022 22:27:09][INFO] -  <<Test>> - Epoch: 38.  MIoU: 70.46. [31mBest: 70.74/32[0m
+[09/24/2022 22:27:26][INFO] - Epoch/Iter [80:39/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1722 (0.1766)	LR 0.00055 	
+[09/24/2022 22:27:42][INFO] - Epoch/Iter [80:39/ 40]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1703 (0.1676)	LR 0.00054 	
+[09/24/2022 22:27:58][INFO] - Epoch/Iter [80:39/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1804 (0.1614)	LR 0.00054 	
+[09/24/2022 22:28:15][INFO] - Epoch/Iter [80:39/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1166 (0.1608)	LR 0.00054 	
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [0] IoU 92.42
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [1] IoU 84.44
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [2] IoU 40.51
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [3] IoU 85.90
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [4] IoU 60.67
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [5] IoU 74.99
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [6] IoU 87.46
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [7] IoU 83.89
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [8] IoU 87.25
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [9] IoU 27.23
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [10] IoU 77.75
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [11] IoU 32.91
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [12] IoU 83.78
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [13] IoU 77.07
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [14] IoU 78.13
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [15] IoU 81.05
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [16] IoU 57.29
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [17] IoU 78.78
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [18] IoU 39.45
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [19] IoU 83.16
+[09/24/2022 22:29:08][INFO] -  [Test] -  class [20] IoU 69.88
+[09/24/2022 22:29:10][INFO] -  <<Test>> - Epoch: 39.  MIoU: 70.67. [31mBest: 70.74/32[0m
+[09/24/2022 22:29:27][INFO] - Epoch/Iter [80:40/ 20]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1329 (0.1452)	LR 0.00053 	
+[09/24/2022 22:29:43][INFO] - Epoch/Iter [80:40/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.2157 (0.1762)	LR 0.00053 	
+[09/24/2022 22:29:59][INFO] - Epoch/Iter [80:40/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1448 (0.1928)	LR 0.00053 	
+[09/24/2022 22:30:16][INFO] - Epoch/Iter [80:40/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.1297 (0.1737)	LR 0.00052 	
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [0] IoU 92.36
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [1] IoU 83.55
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [2] IoU 39.74
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [3] IoU 84.49
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [4] IoU 57.99
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [5] IoU 74.95
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [6] IoU 85.63
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [7] IoU 81.56
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [8] IoU 88.74
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [9] IoU 28.39
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [10] IoU 77.72
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [11] IoU 34.54
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [12] IoU 83.64
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [13] IoU 78.95
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [14] IoU 78.20
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [15] IoU 81.28
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [16] IoU 59.18
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [17] IoU 77.47
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [18] IoU 33.46
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [19] IoU 83.35
+[09/24/2022 22:31:10][INFO] -  [Test] -  class [20] IoU 68.09
+[09/24/2022 22:31:12][INFO] -  <<Test>> - Epoch: 40.  MIoU: 70.16. [31mBest: 70.74/32[0m
+[09/24/2022 22:31:29][INFO] - Epoch/Iter [80:41/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1931 (0.1781)	LR 0.00052 	
+[09/24/2022 22:31:45][INFO] - Epoch/Iter [80:41/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1825 (0.1690)	LR 0.00052 	
+[09/24/2022 22:32:01][INFO] - Epoch/Iter [80:41/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2312 (0.1769)	LR 0.00052 	
+[09/24/2022 22:32:18][INFO] - Epoch/Iter [80:41/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1971 (0.1735)	LR 0.00051 	
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [0] IoU 92.31
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [1] IoU 83.58
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [2] IoU 38.23
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [3] IoU 83.77
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [4] IoU 59.74
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [5] IoU 75.28
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [6] IoU 87.54
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [7] IoU 82.25
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [8] IoU 89.71
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [9] IoU 30.61
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [10] IoU 80.27
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [11] IoU 33.28
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [12] IoU 84.81
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [13] IoU 80.04
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [14] IoU 78.07
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [15] IoU 80.98
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [16] IoU 57.13
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [17] IoU 75.67
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [18] IoU 37.55
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [19] IoU 82.87
+[09/24/2022 22:33:12][INFO] -  [Test] -  class [20] IoU 70.30
+[09/24/2022 22:33:13][INFO] -  <<Test>> - Epoch: 41.  MIoU: 70.67. [31mBest: 70.74/32[0m
+[09/24/2022 22:33:30][INFO] - Epoch/Iter [80:42/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1332 (0.1614)	LR 0.00051 	
+[09/24/2022 22:33:46][INFO] - Epoch/Iter [80:42/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2054 (0.1815)	LR 0.00051 	
+[09/24/2022 22:34:02][INFO] - Epoch/Iter [80:42/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1465 (0.1993)	LR 0.00050 	
+[09/24/2022 22:34:19][INFO] - Epoch/Iter [80:42/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1254 (0.1685)	LR 0.00050 	
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [0] IoU 92.33
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [1] IoU 83.78
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [2] IoU 38.23
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [3] IoU 84.62
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [4] IoU 59.64
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [5] IoU 74.86
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [6] IoU 87.48
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [7] IoU 84.18
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [8] IoU 89.15
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [9] IoU 27.50
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [10] IoU 74.84
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [11] IoU 37.48
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [12] IoU 84.17
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [13] IoU 75.41
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [14] IoU 79.16
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [15] IoU 81.29
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [16] IoU 58.58
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [17] IoU 79.21
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [18] IoU 34.81
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [19] IoU 83.08
+[09/24/2022 22:35:13][INFO] -  [Test] -  class [20] IoU 66.25
+[09/24/2022 22:35:14][INFO] -  <<Test>> - Epoch: 42.  MIoU: 70.29. [31mBest: 70.74/32[0m
+[09/24/2022 22:35:31][INFO] - Epoch/Iter [80:43/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2034 (0.1564)	LR 0.00050 	
+[09/24/2022 22:35:47][INFO] - Epoch/Iter [80:43/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1632 (0.1780)	LR 0.00049 	
+[09/24/2022 22:36:03][INFO] - Epoch/Iter [80:43/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1541 (0.1868)	LR 0.00049 	
+[09/24/2022 22:36:20][INFO] - Epoch/Iter [80:43/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2867 (0.1820)	LR 0.00049 	
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [0] IoU 92.36
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [1] IoU 83.34
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [2] IoU 38.99
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [3] IoU 85.55
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [4] IoU 60.12
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [5] IoU 74.27
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [6] IoU 86.68
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [7] IoU 83.59
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [8] IoU 87.73
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [9] IoU 31.24
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [10] IoU 78.32
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [11] IoU 34.06
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [12] IoU 83.84
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [13] IoU 80.44
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [14] IoU 78.51
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [15] IoU 81.23
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [16] IoU 59.52
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [17] IoU 79.52
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [18] IoU 36.44
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [19] IoU 83.88
+[09/24/2022 22:37:14][INFO] -  [Test] -  class [20] IoU 67.46
+[09/24/2022 22:37:17][INFO] -  <<Test>> - Epoch: 43.  MIoU: 70.81. [31mBest: 70.81/43[0m
+[09/24/2022 22:37:34][INFO] - Epoch/Iter [80:44/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1325 (0.1853)	LR 0.00048 	
+[09/24/2022 22:37:50][INFO] - Epoch/Iter [80:44/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1458 (0.1537)	LR 0.00048 	
+[09/24/2022 22:38:06][INFO] - Epoch/Iter [80:44/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1574 (0.1686)	LR 0.00048 	
+[09/24/2022 22:38:23][INFO] - Epoch/Iter [80:44/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.1911 (0.1825)	LR 0.00048 	
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [0] IoU 92.45
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [1] IoU 84.21
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [2] IoU 39.33
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [3] IoU 85.11
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [4] IoU 60.22
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [5] IoU 73.48
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [6] IoU 86.51
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [7] IoU 83.55
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [8] IoU 88.98
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [9] IoU 30.51
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [10] IoU 78.72
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [11] IoU 42.05
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [12] IoU 85.03
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [13] IoU 77.72
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [14] IoU 77.55
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [15] IoU 81.02
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [16] IoU 59.84
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [17] IoU 79.76
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [18] IoU 38.14
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [19] IoU 82.94
+[09/24/2022 22:39:17][INFO] -  [Test] -  class [20] IoU 68.11
+[09/24/2022 22:39:19][INFO] -  <<Test>> - Epoch: 44.  MIoU: 71.20. [31mBest: 71.20/44[0m
+[09/24/2022 22:39:36][INFO] - Epoch/Iter [80:45/ 20]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1351 (0.1661)	LR 0.00047 	
+[09/24/2022 22:39:52][INFO] - Epoch/Iter [80:45/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1317 (0.1437)	LR 0.00047 	
+[09/24/2022 22:40:08][INFO] - Epoch/Iter [80:45/ 60]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1312 (0.1797)	LR 0.00047 	
+[09/24/2022 22:40:26][INFO] - Epoch/Iter [80:45/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1603 (0.1549)	LR 0.00046 	
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [0] IoU 92.51
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [1] IoU 84.97
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [2] IoU 40.77
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [3] IoU 84.39
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [4] IoU 59.74
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [5] IoU 74.17
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [6] IoU 85.61
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [7] IoU 82.72
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [8] IoU 89.05
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [9] IoU 26.27
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [10] IoU 77.42
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [11] IoU 45.53
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [12] IoU 84.43
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [13] IoU 77.93
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [14] IoU 75.44
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [15] IoU 80.96
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [16] IoU 58.63
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [17] IoU 77.73
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [18] IoU 39.83
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [19] IoU 82.87
+[09/24/2022 22:41:20][INFO] -  [Test] -  class [20] IoU 69.63
+[09/24/2022 22:41:21][INFO] -  <<Test>> - Epoch: 45.  MIoU: 70.98. [31mBest: 71.20/44[0m
+[09/24/2022 22:41:38][INFO] - Epoch/Iter [80:46/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1123 (0.1781)	LR 0.00046 	
+[09/24/2022 22:41:54][INFO] - Epoch/Iter [80:46/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1467 (0.1634)	LR 0.00046 	
+[09/24/2022 22:42:10][INFO] - Epoch/Iter [80:46/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1971 (0.1907)	LR 0.00045 	
+[09/24/2022 22:42:27][INFO] - Epoch/Iter [80:46/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1630 (0.1722)	LR 0.00045 	
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [0] IoU 92.21
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [1] IoU 83.98
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [2] IoU 37.35
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [3] IoU 82.24
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [4] IoU 57.87
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [5] IoU 73.86
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [6] IoU 87.48
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [7] IoU 83.84
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [8] IoU 87.19
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [9] IoU 29.30
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [10] IoU 76.31
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [11] IoU 37.70
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [12] IoU 82.76
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [13] IoU 78.35
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [14] IoU 77.55
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [15] IoU 81.03
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [16] IoU 58.25
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [17] IoU 72.66
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [18] IoU 35.62
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [19] IoU 82.91
+[09/24/2022 22:43:21][INFO] -  [Test] -  class [20] IoU 66.64
+[09/24/2022 22:43:22][INFO] -  <<Test>> - Epoch: 46.  MIoU: 69.77. [31mBest: 71.20/44[0m
+[09/24/2022 22:43:39][INFO] - Epoch/Iter [80:47/ 20]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1695 (0.2025)	LR 0.00045 	
+[09/24/2022 22:43:55][INFO] - Epoch/Iter [80:47/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1259 (0.1637)	LR 0.00044 	
+[09/24/2022 22:44:11][INFO] - Epoch/Iter [80:47/ 60]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1848 (0.2137)	LR 0.00044 	
+[09/24/2022 22:44:29][INFO] - Epoch/Iter [80:47/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1333 (0.1624)	LR 0.00044 	
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [0] IoU 92.32
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [1] IoU 85.21
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [2] IoU 36.59
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [3] IoU 82.07
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [4] IoU 59.70
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [5] IoU 73.00
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [6] IoU 85.87
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [7] IoU 82.74
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [8] IoU 86.10
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [9] IoU 27.91
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [10] IoU 76.61
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [11] IoU 40.47
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [12] IoU 83.62
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [13] IoU 78.94
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [14] IoU 76.64
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [15] IoU 80.95
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [16] IoU 58.50
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [17] IoU 73.58
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [18] IoU 35.95
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [19] IoU 81.63
+[09/24/2022 22:45:22][INFO] -  [Test] -  class [20] IoU 67.06
+[09/24/2022 22:45:24][INFO] -  <<Test>> - Epoch: 47.  MIoU: 69.78. [31mBest: 71.20/44[0m
+[09/24/2022 22:45:41][INFO] - Epoch/Iter [80:48/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1731 (0.1473)	LR 0.00044 	
+[09/24/2022 22:45:57][INFO] - Epoch/Iter [80:48/ 40]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1676 (0.1468)	LR 0.00043 	
+[09/24/2022 22:46:13][INFO] - Epoch/Iter [80:48/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1906 (0.1845)	LR 0.00043 	
+[09/24/2022 22:46:30][INFO] - Epoch/Iter [80:48/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.2195 (0.1958)	LR 0.00043 	
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [0] IoU 92.44
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [1] IoU 84.80
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [2] IoU 39.33
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [3] IoU 84.92
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [4] IoU 61.54
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [5] IoU 73.63
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [6] IoU 84.98
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [7] IoU 80.70
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [8] IoU 87.86
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [9] IoU 29.34
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [10] IoU 81.06
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [11] IoU 32.22
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [12] IoU 84.15
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [13] IoU 82.29
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [14] IoU 74.66
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [15] IoU 81.26
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [16] IoU 59.40
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [17] IoU 77.46
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [18] IoU 38.29
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [19] IoU 81.94
+[09/24/2022 22:47:24][INFO] -  [Test] -  class [20] IoU 70.80
+[09/24/2022 22:47:25][INFO] -  <<Test>> - Epoch: 48.  MIoU: 70.62. [31mBest: 71.20/44[0m
+[09/24/2022 22:47:42][INFO] - Epoch/Iter [80:49/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.2109 (0.1564)	LR 0.00042 	
+[09/24/2022 22:47:58][INFO] - Epoch/Iter [80:49/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1528 (0.1730)	LR 0.00042 	
+[09/24/2022 22:48:14][INFO] - Epoch/Iter [80:49/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1423 (0.1575)	LR 0.00042 	
+[09/24/2022 22:48:31][INFO] - Epoch/Iter [80:49/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.2467 (0.1728)	LR 0.00041 	
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [0] IoU 92.60
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [1] IoU 82.87
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [2] IoU 39.62
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [3] IoU 85.31
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [4] IoU 60.40
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [5] IoU 73.84
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [6] IoU 85.76
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [7] IoU 82.54
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [8] IoU 87.98
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [9] IoU 29.76
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [10] IoU 80.90
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [11] IoU 43.34
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [12] IoU 83.61
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [13] IoU 81.94
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [14] IoU 77.20
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [15] IoU 81.36
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [16] IoU 58.64
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [17] IoU 76.72
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [18] IoU 35.22
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [19] IoU 82.56
+[09/24/2022 22:49:25][INFO] -  [Test] -  class [20] IoU 70.78
+[09/24/2022 22:49:26][INFO] -  <<Test>> - Epoch: 49.  MIoU: 71.09. [31mBest: 71.20/44[0m
+[09/24/2022 22:49:43][INFO] - Epoch/Iter [80:50/ 20]	Data 0.00 (0.00)	Time 0.78 (0.80)	Loss 0.2037 (0.1615)	LR 0.00041 	
+[09/24/2022 22:49:59][INFO] - Epoch/Iter [80:50/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1631 (0.1468)	LR 0.00041 	
+[09/24/2022 22:50:15][INFO] - Epoch/Iter [80:50/ 60]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1370 (0.1558)	LR 0.00040 	
+[09/24/2022 22:50:32][INFO] - Epoch/Iter [80:50/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.2055 (0.1631)	LR 0.00040 	
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [0] IoU 92.54
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [1] IoU 84.92
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [2] IoU 39.72
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [3] IoU 84.68
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [4] IoU 60.28
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [5] IoU 74.04
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [6] IoU 85.98
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [7] IoU 83.18
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [8] IoU 88.22
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [9] IoU 30.52
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [10] IoU 79.54
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [11] IoU 42.61
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [12] IoU 83.68
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [13] IoU 80.79
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [14] IoU 78.03
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [15] IoU 81.33
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [16] IoU 59.63
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [17] IoU 75.21
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [18] IoU 35.59
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [19] IoU 82.14
+[09/24/2022 22:51:26][INFO] -  [Test] -  class [20] IoU 71.00
+[09/24/2022 22:51:28][INFO] -  <<Test>> - Epoch: 50.  MIoU: 71.12. [31mBest: 71.20/44[0m
+[09/24/2022 22:51:45][INFO] - Epoch/Iter [80:51/ 20]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1133 (0.1316)	LR 0.00040 	
+[09/24/2022 22:52:01][INFO] - Epoch/Iter [80:51/ 40]	Data 0.00 (0.00)	Time 0.78 (0.80)	Loss 0.1575 (0.1436)	LR 0.00040 	
+[09/24/2022 22:52:17][INFO] - Epoch/Iter [80:51/ 60]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1764 (0.1626)	LR 0.00039 	
+[09/24/2022 22:52:34][INFO] - Epoch/Iter [80:51/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1467 (0.1768)	LR 0.00039 	
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [0] IoU 92.43
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [1] IoU 83.94
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [2] IoU 39.05
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [3] IoU 84.59
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [4] IoU 60.69
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [5] IoU 74.24
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [6] IoU 87.27
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [7] IoU 83.05
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [8] IoU 87.75
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [9] IoU 28.55
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [10] IoU 80.06
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [11] IoU 37.25
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [12] IoU 84.25
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [13] IoU 81.34
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [14] IoU 77.79
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [15] IoU 81.65
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [16] IoU 59.83
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [17] IoU 76.80
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [18] IoU 38.48
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [19] IoU 82.92
+[09/24/2022 22:53:28][INFO] -  [Test] -  class [20] IoU 70.23
+[09/24/2022 22:53:29][INFO] -  <<Test>> - Epoch: 51.  MIoU: 71.06. [31mBest: 71.20/44[0m
+[09/24/2022 22:53:46][INFO] - Epoch/Iter [80:52/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1663 (0.1599)	LR 0.00039 	
+[09/24/2022 22:54:02][INFO] - Epoch/Iter [80:52/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1699 (0.1559)	LR 0.00038 	
+[09/24/2022 22:54:18][INFO] - Epoch/Iter [80:52/ 60]	Data 0.00 (0.00)	Time 0.82 (0.80)	Loss 0.1611 (0.1531)	LR 0.00038 	
+[09/24/2022 22:54:35][INFO] - Epoch/Iter [80:52/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1150 (0.1463)	LR 0.00038 	
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [0] IoU 92.52
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [1] IoU 85.53
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [2] IoU 38.44
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [3] IoU 84.27
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [4] IoU 60.28
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [5] IoU 73.71
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [6] IoU 86.41
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [7] IoU 83.65
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [8] IoU 89.38
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [9] IoU 28.18
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [10] IoU 80.11
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [11] IoU 37.21
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [12] IoU 84.72
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [13] IoU 80.94
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [14] IoU 78.44
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [15] IoU 81.54
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [16] IoU 60.28
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [17] IoU 77.52
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [18] IoU 33.17
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [19] IoU 82.05
+[09/24/2022 22:55:29][INFO] -  [Test] -  class [20] IoU 69.90
+[09/24/2022 22:55:30][INFO] -  <<Test>> - Epoch: 52.  MIoU: 70.87. [31mBest: 71.20/44[0m
+[09/24/2022 22:55:48][INFO] - Epoch/Iter [80:53/ 20]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.2601 (0.1652)	LR 0.00037 	
+[09/24/2022 22:56:04][INFO] - Epoch/Iter [80:53/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1422 (0.1579)	LR 0.00037 	
+[09/24/2022 22:56:19][INFO] - Epoch/Iter [80:53/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1861 (0.1787)	LR 0.00037 	
+[09/24/2022 22:56:37][INFO] - Epoch/Iter [80:53/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1756 (0.1482)	LR 0.00036 	
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [0] IoU 92.68
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [1] IoU 85.71
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [2] IoU 39.88
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [3] IoU 85.55
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [4] IoU 61.19
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [5] IoU 74.12
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [6] IoU 88.15
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [7] IoU 84.21
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [8] IoU 89.43
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [9] IoU 27.63
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [10] IoU 80.30
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [11] IoU 40.19
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [12] IoU 84.40
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [13] IoU 81.37
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [14] IoU 80.38
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [15] IoU 81.73
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [16] IoU 59.93
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [17] IoU 79.72
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [18] IoU 40.11
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [19] IoU 83.61
+[09/24/2022 22:57:30][INFO] -  [Test] -  class [20] IoU 70.40
+[09/24/2022 22:57:33][INFO] -  <<Test>> - Epoch: 53.  MIoU: 71.94. [31mBest: 71.94/53[0m
+[09/24/2022 22:57:50][INFO] - Epoch/Iter [80:54/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1198 (0.1506)	LR 0.00036 	
+[09/24/2022 22:58:06][INFO] - Epoch/Iter [80:54/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1180 (0.1650)	LR 0.00036 	
+[09/24/2022 22:58:22][INFO] - Epoch/Iter [80:54/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1866 (0.1700)	LR 0.00035 	
+[09/24/2022 22:58:39][INFO] - Epoch/Iter [80:54/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1233 (0.1480)	LR 0.00035 	
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [0] IoU 92.42
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [1] IoU 84.92
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [2] IoU 39.19
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [3] IoU 85.39
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [4] IoU 58.06
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [5] IoU 73.99
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [6] IoU 89.58
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [7] IoU 83.74
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [8] IoU 89.03
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [9] IoU 27.47
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [10] IoU 78.41
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [11] IoU 40.81
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [12] IoU 83.93
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [13] IoU 79.94
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [14] IoU 79.36
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [15] IoU 81.62
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [16] IoU 58.83
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [17] IoU 76.47
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [18] IoU 36.08
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [19] IoU 84.64
+[09/24/2022 22:59:33][INFO] -  [Test] -  class [20] IoU 69.24
+[09/24/2022 22:59:34][INFO] -  <<Test>> - Epoch: 54.  MIoU: 71.10. [31mBest: 71.94/53[0m
+[09/24/2022 22:59:52][INFO] - Epoch/Iter [80:55/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1435 (0.1588)	LR 0.00035 	
+[09/24/2022 23:00:07][INFO] - Epoch/Iter [80:55/ 40]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1334 (0.1321)	LR 0.00035 	
+[09/24/2022 23:00:23][INFO] - Epoch/Iter [80:55/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1233 (0.1577)	LR 0.00034 	
+[09/24/2022 23:00:41][INFO] - Epoch/Iter [80:55/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1757 (0.1637)	LR 0.00034 	
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [0] IoU 92.46
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [1] IoU 85.43
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [2] IoU 38.66
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [3] IoU 84.63
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [4] IoU 60.37
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [5] IoU 73.35
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [6] IoU 87.65
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [7] IoU 83.42
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [8] IoU 88.26
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [9] IoU 27.46
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [10] IoU 78.95
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [11] IoU 36.12
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [12] IoU 83.61
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [13] IoU 80.50
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [14] IoU 78.22
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [15] IoU 81.35
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [16] IoU 58.79
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [17] IoU 77.61
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [18] IoU 36.55
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [19] IoU 85.52
+[09/24/2022 23:01:35][INFO] -  [Test] -  class [20] IoU 70.14
+[09/24/2022 23:01:37][INFO] -  <<Test>> - Epoch: 55.  MIoU: 70.91. [31mBest: 71.94/53[0m
+[09/24/2022 23:01:54][INFO] - Epoch/Iter [80:56/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1716 (0.1527)	LR 0.00034 	
+[09/24/2022 23:02:10][INFO] - Epoch/Iter [80:56/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1680 (0.1481)	LR 0.00033 	
+[09/24/2022 23:02:26][INFO] - Epoch/Iter [80:56/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1647 (0.1589)	LR 0.00033 	
+[09/24/2022 23:02:43][INFO] - Epoch/Iter [80:56/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1305 (0.1658)	LR 0.00033 	
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [0] IoU 92.44
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [1] IoU 86.03
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [2] IoU 39.03
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [3] IoU 84.16
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [4] IoU 58.98
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [5] IoU 73.84
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [6] IoU 86.20
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [7] IoU 81.33
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [8] IoU 89.36
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [9] IoU 27.95
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [10] IoU 79.39
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [11] IoU 35.55
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [12] IoU 84.15
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [13] IoU 81.63
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [14] IoU 76.12
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [15] IoU 81.18
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [16] IoU 59.73
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [17] IoU 78.03
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [18] IoU 38.29
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [19] IoU 84.17
+[09/24/2022 23:03:36][INFO] -  [Test] -  class [20] IoU 70.01
+[09/24/2022 23:03:38][INFO] -  <<Test>> - Epoch: 56.  MIoU: 70.84. [31mBest: 71.94/53[0m
+[09/24/2022 23:03:55][INFO] - Epoch/Iter [80:57/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1123 (0.1377)	LR 0.00032 	
+[09/24/2022 23:04:11][INFO] - Epoch/Iter [80:57/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1550 (0.1334)	LR 0.00032 	
+[09/24/2022 23:04:27][INFO] - Epoch/Iter [80:57/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1376 (0.1546)	LR 0.00032 	
+[09/24/2022 23:04:44][INFO] - Epoch/Iter [80:57/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1792 (0.1572)	LR 0.00031 	
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [0] IoU 92.56
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [1] IoU 85.26
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [2] IoU 40.38
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [3] IoU 84.62
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [4] IoU 59.71
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [5] IoU 73.93
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [6] IoU 87.48
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [7] IoU 82.61
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [8] IoU 89.56
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [9] IoU 27.33
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [10] IoU 79.56
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [11] IoU 42.51
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [12] IoU 84.05
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [13] IoU 80.91
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [14] IoU 76.82
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [15] IoU 81.31
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [16] IoU 59.71
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [17] IoU 78.23
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [18] IoU 37.31
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [19] IoU 84.45
+[09/24/2022 23:05:38][INFO] -  [Test] -  class [20] IoU 69.94
+[09/24/2022 23:05:39][INFO] -  <<Test>> - Epoch: 57.  MIoU: 71.35. [31mBest: 71.94/53[0m
+[09/24/2022 23:05:56][INFO] - Epoch/Iter [80:58/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1381 (0.1381)	LR 0.00031 	
+[09/24/2022 23:06:12][INFO] - Epoch/Iter [80:58/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1344 (0.1274)	LR 0.00031 	
+[09/24/2022 23:06:28][INFO] - Epoch/Iter [80:58/ 60]	Data 0.00 (0.00)	Time 0.78 (0.80)	Loss 0.1435 (0.1396)	LR 0.00030 	
+[09/24/2022 23:06:45][INFO] - Epoch/Iter [80:58/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1590 (0.1687)	LR 0.00030 	
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [0] IoU 92.54
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [1] IoU 85.73
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [2] IoU 40.40
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [3] IoU 85.69
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [4] IoU 60.16
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [5] IoU 74.38
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [6] IoU 90.09
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [7] IoU 83.75
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [8] IoU 89.03
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [9] IoU 26.56
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [10] IoU 80.32
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [11] IoU 37.47
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [12] IoU 84.12
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [13] IoU 81.83
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [14] IoU 78.00
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [15] IoU 80.96
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [16] IoU 57.08
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [17] IoU 77.90
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [18] IoU 36.82
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [19] IoU 85.11
+[09/24/2022 23:07:39][INFO] -  [Test] -  class [20] IoU 70.64
+[09/24/2022 23:07:40][INFO] -  <<Test>> - Epoch: 58.  MIoU: 71.36. [31mBest: 71.94/53[0m
+[09/24/2022 23:07:57][INFO] - Epoch/Iter [80:59/ 20]	Data 0.00 (0.00)	Time 0.81 (0.79)	Loss 0.1599 (0.1549)	LR 0.00030 	
+[09/24/2022 23:08:13][INFO] - Epoch/Iter [80:59/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1076 (0.1367)	LR 0.00029 	
+[09/24/2022 23:08:29][INFO] - Epoch/Iter [80:59/ 60]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1315 (0.1401)	LR 0.00029 	
+[09/24/2022 23:08:46][INFO] - Epoch/Iter [80:59/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.1026 (0.1428)	LR 0.00029 	
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [0] IoU 92.58
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [1] IoU 85.93
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [2] IoU 39.83
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [3] IoU 85.66
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [4] IoU 60.81
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [5] IoU 74.51
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [6] IoU 88.97
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [7] IoU 84.05
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [8] IoU 89.10
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [9] IoU 28.55
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [10] IoU 80.22
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [11] IoU 35.52
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [12] IoU 84.55
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [13] IoU 81.59
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [14] IoU 77.92
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [15] IoU 81.92
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [16] IoU 59.75
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [17] IoU 78.74
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [18] IoU 37.67
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [19] IoU 84.89
+[09/24/2022 23:09:40][INFO] -  [Test] -  class [20] IoU 69.70
+[09/24/2022 23:09:41][INFO] -  <<Test>> - Epoch: 59.  MIoU: 71.55. [31mBest: 71.94/53[0m
+[09/24/2022 23:09:58][INFO] - Epoch/Iter [80:60/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1275 (0.1416)	LR 0.00028 	
+[09/24/2022 23:10:14][INFO] - Epoch/Iter [80:60/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1188 (0.1297)	LR 0.00028 	
+[09/24/2022 23:10:30][INFO] - Epoch/Iter [80:60/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1584 (0.1518)	LR 0.00028 	
+[09/24/2022 23:10:48][INFO] - Epoch/Iter [80:60/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1232 (0.1658)	LR 0.00027 	
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [0] IoU 92.67
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [1] IoU 86.39
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [2] IoU 40.83
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [3] IoU 85.14
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [4] IoU 59.88
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [5] IoU 75.01
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [6] IoU 90.23
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [7] IoU 85.07
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [8] IoU 88.71
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [9] IoU 30.28
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [10] IoU 80.54
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [11] IoU 37.25
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [12] IoU 84.81
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [13] IoU 82.12
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [14] IoU 80.29
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [15] IoU 81.60
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [16] IoU 59.72
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [17] IoU 78.75
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [18] IoU 39.06
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [19] IoU 86.22
+[09/24/2022 23:11:42][INFO] -  [Test] -  class [20] IoU 70.14
+[09/24/2022 23:11:44][INFO] -  <<Test>> - Epoch: 60.  MIoU: 72.13. [31mBest: 72.13/60[0m
+[09/24/2022 23:12:02][INFO] - Epoch/Iter [80:61/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1833 (0.1449)	LR 0.00027 	
+[09/24/2022 23:12:17][INFO] - Epoch/Iter [80:61/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1143 (0.1258)	LR 0.00027 	
+[09/24/2022 23:12:33][INFO] - Epoch/Iter [80:61/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1198 (0.1608)	LR 0.00026 	
+[09/24/2022 23:12:51][INFO] - Epoch/Iter [80:61/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.1071 (0.1428)	LR 0.00026 	
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [0] IoU 92.57
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [1] IoU 85.94
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [2] IoU 39.18
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [3] IoU 85.56
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [4] IoU 61.84
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [5] IoU 74.71
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [6] IoU 88.48
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [7] IoU 83.52
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [8] IoU 87.24
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [9] IoU 29.28
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [10] IoU 79.04
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [11] IoU 35.39
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [12] IoU 84.09
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [13] IoU 79.85
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [14] IoU 78.04
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [15] IoU 81.96
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [16] IoU 59.78
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [17] IoU 78.52
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [18] IoU 36.34
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [19] IoU 85.15
+[09/24/2022 23:13:44][INFO] -  [Test] -  class [20] IoU 70.43
+[09/24/2022 23:13:46][INFO] -  <<Test>> - Epoch: 61.  MIoU: 71.28. [31mBest: 72.13/60[0m
+[09/24/2022 23:14:03][INFO] - Epoch/Iter [80:62/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1613 (0.2069)	LR 0.00026 	
+[09/24/2022 23:14:19][INFO] - Epoch/Iter [80:62/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1260 (0.1381)	LR 0.00026 	
+[09/24/2022 23:14:35][INFO] - Epoch/Iter [80:62/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1022 (0.1294)	LR 0.00025 	
+[09/24/2022 23:14:52][INFO] - Epoch/Iter [80:62/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1715 (0.1598)	LR 0.00025 	
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [0] IoU 92.63
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [1] IoU 86.16
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [2] IoU 40.12
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [3] IoU 84.88
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [4] IoU 62.15
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [5] IoU 74.70
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [6] IoU 87.73
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [7] IoU 82.25
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [8] IoU 88.92
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [9] IoU 28.26
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [10] IoU 79.09
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [11] IoU 40.64
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [12] IoU 84.20
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [13] IoU 80.87
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [14] IoU 77.54
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [15] IoU 81.70
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [16] IoU 58.93
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [17] IoU 79.90
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [18] IoU 36.29
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [19] IoU 85.08
+[09/24/2022 23:15:46][INFO] -  [Test] -  class [20] IoU 69.79
+[09/24/2022 23:15:47][INFO] -  <<Test>> - Epoch: 62.  MIoU: 71.52. [31mBest: 72.13/60[0m
+[09/24/2022 23:16:04][INFO] - Epoch/Iter [80:63/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1612 (0.1445)	LR 0.00025 	
+[09/24/2022 23:16:20][INFO] - Epoch/Iter [80:63/ 40]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1123 (0.1428)	LR 0.00024 	
+[09/24/2022 23:16:36][INFO] - Epoch/Iter [80:63/ 60]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1294 (0.1453)	LR 0.00024 	
+[09/24/2022 23:16:53][INFO] - Epoch/Iter [80:63/ 82]	Data 0.00 (0.00)	Time 0.63 (0.78)	Loss 0.1260 (0.1596)	LR 0.00024 	
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [0] IoU 92.64
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [1] IoU 85.75
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [2] IoU 39.92
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [3] IoU 85.34
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [4] IoU 61.46
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [5] IoU 74.42
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [6] IoU 88.28
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [7] IoU 82.56
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [8] IoU 88.04
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [9] IoU 28.19
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [10] IoU 79.34
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [11] IoU 42.14
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [12] IoU 84.06
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [13] IoU 80.74
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [14] IoU 77.08
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [15] IoU 82.01
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [16] IoU 58.93
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [17] IoU 78.77
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [18] IoU 34.85
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [19] IoU 84.76
+[09/24/2022 23:17:47][INFO] -  [Test] -  class [20] IoU 69.32
+[09/24/2022 23:17:48][INFO] -  <<Test>> - Epoch: 63.  MIoU: 71.36. [31mBest: 72.13/60[0m
+[09/24/2022 23:18:06][INFO] - Epoch/Iter [80:64/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1640 (0.1449)	LR 0.00023 	
+[09/24/2022 23:18:22][INFO] - Epoch/Iter [80:64/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1278 (0.1458)	LR 0.00023 	
+[09/24/2022 23:18:38][INFO] - Epoch/Iter [80:64/ 60]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1209 (0.1435)	LR 0.00023 	
+[09/24/2022 23:18:55][INFO] - Epoch/Iter [80:64/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1538 (0.1627)	LR 0.00022 	
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [0] IoU 92.68
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [1] IoU 86.71
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [2] IoU 40.70
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [3] IoU 85.73
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [4] IoU 61.97
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [5] IoU 75.01
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [6] IoU 89.21
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [7] IoU 83.31
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [8] IoU 88.68
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [9] IoU 27.87
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [10] IoU 81.55
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [11] IoU 37.21
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [12] IoU 84.30
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [13] IoU 82.00
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [14] IoU 79.01
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [15] IoU 81.97
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [16] IoU 60.14
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [17] IoU 79.88
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [18] IoU 37.50
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [19] IoU 85.02
+[09/24/2022 23:19:48][INFO] -  [Test] -  class [20] IoU 70.45
+[09/24/2022 23:19:50][INFO] -  <<Test>> - Epoch: 64.  MIoU: 71.95. [31mBest: 72.13/60[0m
+[09/24/2022 23:20:07][INFO] - Epoch/Iter [80:65/ 20]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1660 (0.1530)	LR 0.00022 	
+[09/24/2022 23:20:23][INFO] - Epoch/Iter [80:65/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1027 (0.1390)	LR 0.00022 	
+[09/24/2022 23:20:39][INFO] - Epoch/Iter [80:65/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1038 (0.1239)	LR 0.00021 	
+[09/24/2022 23:20:56][INFO] - Epoch/Iter [80:65/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1798 (0.1362)	LR 0.00021 	
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [0] IoU 92.67
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [1] IoU 85.78
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [2] IoU 40.43
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [3] IoU 85.66
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [4] IoU 61.61
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [5] IoU 74.29
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [6] IoU 86.79
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [7] IoU 82.29
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [8] IoU 89.00
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [9] IoU 29.36
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [10] IoU 78.84
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [11] IoU 36.70
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [12] IoU 84.81
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [13] IoU 80.26
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [14] IoU 78.00
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [15] IoU 81.87
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [16] IoU 59.58
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [17] IoU 79.56
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [18] IoU 37.97
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [19] IoU 84.24
+[09/24/2022 23:21:50][INFO] -  [Test] -  class [20] IoU 70.11
+[09/24/2022 23:21:51][INFO] -  <<Test>> - Epoch: 65.  MIoU: 71.42. [31mBest: 72.13/60[0m
+[09/24/2022 23:22:08][INFO] - Epoch/Iter [80:66/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1409 (0.1337)	LR 0.00021 	
+[09/24/2022 23:22:24][INFO] - Epoch/Iter [80:66/ 40]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1386 (0.1428)	LR 0.00020 	
+[09/24/2022 23:22:40][INFO] - Epoch/Iter [80:66/ 60]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1609 (0.1613)	LR 0.00020 	
+[09/24/2022 23:22:58][INFO] - Epoch/Iter [80:66/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.2014 (0.1476)	LR 0.00020 	
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [0] IoU 92.64
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [1] IoU 86.54
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [2] IoU 40.52
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [3] IoU 85.74
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [4] IoU 60.66
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [5] IoU 74.59
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [6] IoU 88.23
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [7] IoU 83.15
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [8] IoU 89.15
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [9] IoU 28.75
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [10] IoU 79.28
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [11] IoU 36.63
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [12] IoU 84.54
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [13] IoU 80.79
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [14] IoU 77.79
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [15] IoU 81.79
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [16] IoU 58.31
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [17] IoU 78.53
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [18] IoU 36.88
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [19] IoU 84.73
+[09/24/2022 23:23:51][INFO] -  [Test] -  class [20] IoU 70.88
+[09/24/2022 23:23:53][INFO] -  <<Test>> - Epoch: 66.  MIoU: 71.43. [31mBest: 72.13/60[0m
+[09/24/2022 23:24:10][INFO] - Epoch/Iter [80:67/ 20]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.0843 (0.1178)	LR 0.00019 	
+[09/24/2022 23:24:26][INFO] - Epoch/Iter [80:67/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1829 (0.1436)	LR 0.00019 	
+[09/24/2022 23:24:42][INFO] - Epoch/Iter [80:67/ 60]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1515 (0.1604)	LR 0.00019 	
+[09/24/2022 23:24:59][INFO] - Epoch/Iter [80:67/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.1054 (0.1320)	LR 0.00018 	
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [0] IoU 92.60
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [1] IoU 86.27
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [2] IoU 40.58
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [3] IoU 85.21
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [4] IoU 61.76
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [5] IoU 74.96
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [6] IoU 88.36
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [7] IoU 83.50
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [8] IoU 89.28
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [9] IoU 29.07
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [10] IoU 79.88
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [11] IoU 35.72
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [12] IoU 84.68
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [13] IoU 80.69
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [14] IoU 78.96
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [15] IoU 81.91
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [16] IoU 59.09
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [17] IoU 79.28
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [18] IoU 37.11
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [19] IoU 85.32
+[09/24/2022 23:25:53][INFO] -  [Test] -  class [20] IoU 69.57
+[09/24/2022 23:25:54][INFO] -  <<Test>> - Epoch: 67.  MIoU: 71.61. [31mBest: 72.13/60[0m
+[09/24/2022 23:26:11][INFO] - Epoch/Iter [80:68/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1559 (0.1405)	LR 0.00018 	
+[09/24/2022 23:26:27][INFO] - Epoch/Iter [80:68/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1418 (0.1415)	LR 0.00017 	
+[09/24/2022 23:26:43][INFO] - Epoch/Iter [80:68/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1271 (0.1511)	LR 0.00017 	
+[09/24/2022 23:27:00][INFO] - Epoch/Iter [80:68/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1178 (0.1391)	LR 0.00017 	
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [0] IoU 92.61
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [1] IoU 86.04
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [2] IoU 39.41
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [3] IoU 85.31
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [4] IoU 60.92
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [5] IoU 74.82
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [6] IoU 89.64
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [7] IoU 83.00
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [8] IoU 89.60
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [9] IoU 29.73
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [10] IoU 77.76
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [11] IoU 34.57
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [12] IoU 85.15
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [13] IoU 79.69
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [14] IoU 78.02
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [15] IoU 81.94
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [16] IoU 59.17
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [17] IoU 79.65
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [18] IoU 37.12
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [19] IoU 85.58
+[09/24/2022 23:27:54][INFO] -  [Test] -  class [20] IoU 69.36
+[09/24/2022 23:27:56][INFO] -  <<Test>> - Epoch: 68.  MIoU: 71.38. [31mBest: 72.13/60[0m
+[09/24/2022 23:28:13][INFO] - Epoch/Iter [80:69/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1061 (0.1406)	LR 0.00016 	
+[09/24/2022 23:28:29][INFO] - Epoch/Iter [80:69/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1260 (0.1423)	LR 0.00016 	
+[09/24/2022 23:28:45][INFO] - Epoch/Iter [80:69/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1041 (0.1505)	LR 0.00016 	
+[09/24/2022 23:29:02][INFO] - Epoch/Iter [80:69/ 82]	Data 0.00 (0.00)	Time 0.66 (0.78)	Loss 0.2467 (0.1540)	LR 0.00015 	
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [0] IoU 92.66
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [1] IoU 86.75
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [2] IoU 39.41
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [3] IoU 85.31
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [4] IoU 59.96
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [5] IoU 74.88
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [6] IoU 89.12
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [7] IoU 83.04
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [8] IoU 89.10
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [9] IoU 28.32
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [10] IoU 79.04
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [11] IoU 36.37
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [12] IoU 83.68
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [13] IoU 81.24
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [14] IoU 79.40
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [15] IoU 82.11
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [16] IoU 59.46
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [17] IoU 79.79
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [18] IoU 38.75
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [19] IoU 85.43
+[09/24/2022 23:29:56][INFO] -  [Test] -  class [20] IoU 70.53
+[09/24/2022 23:29:57][INFO] -  <<Test>> - Epoch: 69.  MIoU: 71.64. [31mBest: 72.13/60[0m
+[09/24/2022 23:30:14][INFO] - Epoch/Iter [80:70/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1375 (0.1379)	LR 0.00015 	
+[09/24/2022 23:30:30][INFO] - Epoch/Iter [80:70/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1095 (0.1239)	LR 0.00015 	
+[09/24/2022 23:30:46][INFO] - Epoch/Iter [80:70/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1194 (0.1397)	LR 0.00014 	
+[09/24/2022 23:31:04][INFO] - Epoch/Iter [80:70/ 82]	Data 0.00 (0.00)	Time 0.64 (0.79)	Loss 0.1371 (0.1536)	LR 0.00014 	
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [0] IoU 92.65
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [1] IoU 85.75
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [2] IoU 39.32
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [3] IoU 85.54
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [4] IoU 60.51
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [5] IoU 75.02
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [6] IoU 88.10
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [7] IoU 82.94
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [8] IoU 89.79
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [9] IoU 29.16
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [10] IoU 77.84
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [11] IoU 39.45
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [12] IoU 84.22
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [13] IoU 79.59
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [14] IoU 78.38
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [15] IoU 81.95
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [16] IoU 59.81
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [17] IoU 78.94
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [18] IoU 39.60
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [19] IoU 84.71
+[09/24/2022 23:31:58][INFO] -  [Test] -  class [20] IoU 70.39
+[09/24/2022 23:31:59][INFO] -  <<Test>> - Epoch: 70.  MIoU: 71.60. [31mBest: 72.13/60[0m
+[09/24/2022 23:32:16][INFO] - Epoch/Iter [80:71/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1790 (0.1395)	LR 0.00014 	
+[09/24/2022 23:32:32][INFO] - Epoch/Iter [80:71/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1369 (0.1417)	LR 0.00013 	
+[09/24/2022 23:32:48][INFO] - Epoch/Iter [80:71/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.0939 (0.1387)	LR 0.00013 	
+[09/24/2022 23:33:05][INFO] - Epoch/Iter [80:71/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1627 (0.1370)	LR 0.00013 	
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [0] IoU 92.65
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [1] IoU 86.01
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [2] IoU 39.60
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [3] IoU 85.79
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [4] IoU 60.28
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [5] IoU 74.65
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [6] IoU 87.58
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [7] IoU 83.37
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [8] IoU 89.67
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [9] IoU 29.22
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [10] IoU 78.77
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [11] IoU 39.14
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [12] IoU 84.65
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [13] IoU 80.54
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [14] IoU 78.36
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [15] IoU 81.72
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [16] IoU 59.29
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [17] IoU 79.75
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [18] IoU 37.70
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [19] IoU 84.24
+[09/24/2022 23:33:59][INFO] -  [Test] -  class [20] IoU 69.57
+[09/24/2022 23:34:00][INFO] -  <<Test>> - Epoch: 71.  MIoU: 71.55. [31mBest: 72.13/60[0m
+[09/24/2022 23:34:18][INFO] - Epoch/Iter [80:72/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1321 (0.1350)	LR 0.00012 	
+[09/24/2022 23:34:33][INFO] - Epoch/Iter [80:72/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.0899 (0.1420)	LR 0.00012 	
+[09/24/2022 23:34:49][INFO] - Epoch/Iter [80:72/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1415 (0.1484)	LR 0.00012 	
+[09/24/2022 23:35:07][INFO] - Epoch/Iter [80:72/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1361 (0.1416)	LR 0.00011 	
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [0] IoU 92.60
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [1] IoU 86.13
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [2] IoU 39.59
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [3] IoU 85.63
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [4] IoU 60.68
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [5] IoU 74.92
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [6] IoU 87.69
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [7] IoU 83.49
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [8] IoU 89.36
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [9] IoU 29.04
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [10] IoU 78.29
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [11] IoU 34.44
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [12] IoU 84.95
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [13] IoU 80.08
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [14] IoU 78.71
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [15] IoU 81.88
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [16] IoU 59.23
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [17] IoU 78.59
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [18] IoU 34.92
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [19] IoU 84.19
+[09/24/2022 23:36:00][INFO] -  [Test] -  class [20] IoU 70.02
+[09/24/2022 23:36:01][INFO] -  <<Test>> - Epoch: 72.  MIoU: 71.16. [31mBest: 72.13/60[0m
+[09/24/2022 23:36:18][INFO] - Epoch/Iter [80:73/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.2252 (0.1505)	LR 0.00011 	
+[09/24/2022 23:36:34][INFO] - Epoch/Iter [80:73/ 40]	Data 0.00 (0.00)	Time 0.78 (0.80)	Loss 0.1267 (0.1284)	LR 0.00010 	
+[09/24/2022 23:36:50][INFO] - Epoch/Iter [80:73/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1204 (0.1459)	LR 0.00010 	
+[09/24/2022 23:37:07][INFO] - Epoch/Iter [80:73/ 82]	Data 0.00 (0.00)	Time 0.63 (0.77)	Loss 0.1278 (0.1262)	LR 0.00010 	
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [0] IoU 92.68
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [1] IoU 86.23
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [2] IoU 39.63
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [3] IoU 85.68
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [4] IoU 60.63
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [5] IoU 75.03
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [6] IoU 89.10
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [7] IoU 83.32
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [8] IoU 89.67
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [9] IoU 29.27
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [10] IoU 78.55
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [11] IoU 34.96
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [12] IoU 84.71
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [13] IoU 81.29
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [14] IoU 78.88
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [15] IoU 81.85
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [16] IoU 59.97
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [17] IoU 78.46
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [18] IoU 38.27
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [19] IoU 85.46
+[09/24/2022 23:38:01][INFO] -  [Test] -  class [20] IoU 69.97
+[09/24/2022 23:38:03][INFO] -  <<Test>> - Epoch: 73.  MIoU: 71.60. [31mBest: 72.13/60[0m
+[09/24/2022 23:38:20][INFO] - Epoch/Iter [80:74/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1110 (0.1446)	LR 0.00009 	
+[09/24/2022 23:38:36][INFO] - Epoch/Iter [80:74/ 40]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.0873 (0.1293)	LR 0.00009 	
+[09/24/2022 23:38:52][INFO] - Epoch/Iter [80:74/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1083 (0.1279)	LR 0.00009 	
+[09/24/2022 23:39:09][INFO] - Epoch/Iter [80:74/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.0984 (0.1349)	LR 0.00008 	
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [0] IoU 92.65
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [1] IoU 86.19
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [2] IoU 39.24
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [3] IoU 85.76
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [4] IoU 61.18
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [5] IoU 74.82
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [6] IoU 88.33
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [7] IoU 83.38
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [8] IoU 89.41
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [9] IoU 29.18
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [10] IoU 79.30
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [11] IoU 37.22
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [12] IoU 84.83
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [13] IoU 81.42
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [14] IoU 78.55
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [15] IoU 81.85
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [16] IoU 59.42
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [17] IoU 79.65
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [18] IoU 37.89
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [19] IoU 84.68
+[09/24/2022 23:40:03][INFO] -  [Test] -  class [20] IoU 69.17
+[09/24/2022 23:40:04][INFO] -  <<Test>> - Epoch: 74.  MIoU: 71.62. [31mBest: 72.13/60[0m
+[09/24/2022 23:40:21][INFO] - Epoch/Iter [80:75/ 20]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1331 (0.1320)	LR 0.00008 	
+[09/24/2022 23:40:37][INFO] - Epoch/Iter [80:75/ 40]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1429 (0.1327)	LR 0.00008 	
+[09/24/2022 23:40:53][INFO] - Epoch/Iter [80:75/ 60]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1563 (0.1586)	LR 0.00007 	
+[09/24/2022 23:41:10][INFO] - Epoch/Iter [80:75/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1785 (0.1462)	LR 0.00007 	
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [0] IoU 92.70
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [1] IoU 86.29
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [2] IoU 39.72
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [3] IoU 85.67
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [4] IoU 61.32
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [5] IoU 75.20
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [6] IoU 88.18
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [7] IoU 83.35
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [8] IoU 88.99
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [9] IoU 29.66
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [10] IoU 79.14
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [11] IoU 36.89
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [12] IoU 84.49
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [13] IoU 80.86
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [14] IoU 78.97
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [15] IoU 81.98
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [16] IoU 60.22
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [17] IoU 78.61
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [18] IoU 38.20
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [19] IoU 84.51
+[09/24/2022 23:42:04][INFO] -  [Test] -  class [20] IoU 70.14
+[09/24/2022 23:42:06][INFO] -  <<Test>> - Epoch: 75.  MIoU: 71.67. [31mBest: 72.13/60[0m
+[09/24/2022 23:42:23][INFO] - Epoch/Iter [80:76/ 20]	Data 0.00 (0.00)	Time 0.81 (0.80)	Loss 0.1982 (0.1526)	LR 0.00006 	
+[09/24/2022 23:42:39][INFO] - Epoch/Iter [80:76/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.1271 (0.1223)	LR 0.00006 	
+[09/24/2022 23:42:54][INFO] - Epoch/Iter [80:76/ 60]	Data 0.00 (0.00)	Time 0.78 (0.79)	Loss 0.1522 (0.1384)	LR 0.00006 	
+[09/24/2022 23:43:12][INFO] - Epoch/Iter [80:76/ 82]	Data 0.00 (0.00)	Time 0.64 (0.77)	Loss 0.1404 (0.1341)	LR 0.00005 	
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [0] IoU 92.69
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [1] IoU 85.98
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [2] IoU 39.20
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [3] IoU 85.87
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [4] IoU 60.81
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [5] IoU 75.18
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [6] IoU 88.34
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [7] IoU 83.49
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [8] IoU 89.76
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [9] IoU 29.70
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [10] IoU 79.30
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [11] IoU 38.63
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [12] IoU 84.80
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [13] IoU 81.31
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [14] IoU 78.75
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [15] IoU 81.94
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [16] IoU 59.36
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [17] IoU 79.52
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [18] IoU 39.46
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [19] IoU 84.07
+[09/24/2022 23:44:06][INFO] -  [Test] -  class [20] IoU 69.75
+[09/24/2022 23:44:07][INFO] -  <<Test>> - Epoch: 76.  MIoU: 71.80. [31mBest: 72.13/60[0m
+[09/24/2022 23:44:24][INFO] - Epoch/Iter [80:77/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1693 (0.1246)	LR 0.00005 	
+[09/24/2022 23:44:40][INFO] - Epoch/Iter [80:77/ 40]	Data 0.00 (0.00)	Time 0.80 (0.79)	Loss 0.0797 (0.1120)	LR 0.00004 	
+[09/24/2022 23:44:56][INFO] - Epoch/Iter [80:77/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1541 (0.1432)	LR 0.00004 	
+[09/24/2022 23:45:13][INFO] - Epoch/Iter [80:77/ 82]	Data 0.00 (0.00)	Time 0.62 (0.77)	Loss 0.2005 (0.1452)	LR 0.00004 	
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [0] IoU 92.68
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [1] IoU 86.50
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [2] IoU 39.48
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [3] IoU 85.78
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [4] IoU 60.93
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [5] IoU 74.70
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [6] IoU 88.73
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [7] IoU 83.32
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [8] IoU 89.10
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [9] IoU 28.91
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [10] IoU 79.70
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [11] IoU 39.10
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [12] IoU 84.74
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [13] IoU 81.58
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [14] IoU 78.68
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [15] IoU 81.99
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [16] IoU 59.63
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [17] IoU 78.86
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [18] IoU 37.42
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [19] IoU 84.64
+[09/24/2022 23:46:07][INFO] -  [Test] -  class [20] IoU 69.89
+[09/24/2022 23:46:08][INFO] -  <<Test>> - Epoch: 77.  MIoU: 71.73. [31mBest: 72.13/60[0m
+[09/24/2022 23:46:26][INFO] - Epoch/Iter [80:78/ 20]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.1333 (0.1420)	LR 0.00003 	
+[09/24/2022 23:46:42][INFO] - Epoch/Iter [80:78/ 40]	Data 0.00 (0.00)	Time 0.78 (0.80)	Loss 0.1424 (0.1193)	LR 0.00003 	
+[09/24/2022 23:46:58][INFO] - Epoch/Iter [80:78/ 60]	Data 0.00 (0.00)	Time 0.79 (0.79)	Loss 0.1257 (0.1413)	LR 0.00002 	
+[09/24/2022 23:47:15][INFO] - Epoch/Iter [80:78/ 82]	Data 0.00 (0.00)	Time 0.65 (0.78)	Loss 0.1910 (0.1456)	LR 0.00002 	
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [0] IoU 92.63
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [1] IoU 86.03
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [2] IoU 39.96
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [3] IoU 85.87
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [4] IoU 60.77
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [5] IoU 74.83
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [6] IoU 88.50
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [7] IoU 83.06
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [8] IoU 88.68
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [9] IoU 28.61
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [10] IoU 78.42
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [11] IoU 35.76
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [12] IoU 84.24
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [13] IoU 79.47
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [14] IoU 78.69
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [15] IoU 81.81
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [16] IoU 59.86
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [17] IoU 78.17
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [18] IoU 37.85
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [19] IoU 85.49
+[09/24/2022 23:48:09][INFO] -  [Test] -  class [20] IoU 69.73
+[09/24/2022 23:48:10][INFO] -  <<Test>> - Epoch: 78.  MIoU: 71.35. [31mBest: 72.13/60[0m
+[09/24/2022 23:48:27][INFO] - Epoch/Iter [80:79/ 20]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1297 (0.1439)	LR 0.00002 	
+[09/24/2022 23:48:43][INFO] - Epoch/Iter [80:79/ 40]	Data 0.00 (0.00)	Time 0.79 (0.80)	Loss 0.1037 (0.1414)	LR 0.00001 	
+[09/24/2022 23:48:59][INFO] - Epoch/Iter [80:79/ 60]	Data 0.00 (0.00)	Time 0.80 (0.80)	Loss 0.0847 (0.1183)	LR 0.00001 	
+[09/24/2022 23:49:16][INFO] - Epoch/Iter [80:79/ 82]	Data 0.00 (0.00)	Time 0.64 (0.78)	Loss 0.0829 (0.1293)	LR 0.00000 	
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [0] IoU 92.63
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [1] IoU 86.49
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [2] IoU 39.70
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [3] IoU 85.53
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [4] IoU 61.56
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [5] IoU 74.51
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [6] IoU 86.97
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [7] IoU 81.77
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [8] IoU 88.96
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [9] IoU 28.04
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [10] IoU 77.91
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [11] IoU 37.67
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [12] IoU 84.24
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [13] IoU 79.35
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [14] IoU 77.82
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [15] IoU 81.95
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [16] IoU 58.67
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [17] IoU 78.62
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [18] IoU 35.90
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [19] IoU 84.91
+[09/24/2022 23:50:10][INFO] -  [Test] -  class [20] IoU 70.24
+[09/24/2022 23:50:11][INFO] -  <<Test>> - Epoch: 79.  MIoU: 71.12. [31mBest: 72.13/60[0m

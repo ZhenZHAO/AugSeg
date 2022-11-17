@@ -1,0 +1,95 @@
+# # # # # # # # # # # # # # 
+# 1. datasets
+# # # # # # # # # # # # # # 
+dataset: # Required.
+  type: pascal_semi
+  train:
+    data_root: ./data/VOC2012
+    data_list: ./data/splitsall/pascal/92/labeled.txt
+    batch_size: 8
+    flip: True
+    rand_resize: [0.5, 2.0]
+    resize_base_size: 500
+    crop:
+      type: rand
+      size: [513, 513]
+    #---- 1) strong data augs ----#
+    strong_aug:
+      num_augs: 3                      # !!!!!!!!!!!!!!!!!!!! key param1 (4): 1, 2, 3, 4  !!!!!!!!!!!!!!!!!!!!
+      flag_use_random_num_sampling: True        # !!!!!!!!!!!!!!!!!!!! key param1 (2): True, False  !!!!!!!!!!!!!!!!!!!!
+  val:
+    data_root: ./data/VOC2012
+    data_list: ./data/splitsall/pascal/val.txt
+    batch_size: 1
+  n_sup: 92
+  workers: 4
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+  ignore_label: 255
+
+# # # # # # # # # # # # # # 
+# 2. training params
+# # # # # # # # # # # # # # 
+trainer: # Required.
+  epochs: 80
+  sup_only_epoch: 0 # 0, 1
+  evaluate_student: True
+  optimizer:
+    type: SGD
+    kwargs:
+      lr: 0.001  # 0.001:8*2gpus, 4*4gpus; 0.002:8*4gpus.
+      momentum: 0.9
+      weight_decay: 0.0001
+  lr_scheduler:
+    mode: poly
+    kwargs:
+      power: 0.9
+  # # # # # # # # # # # # # # 
+  # unsupervised loss
+  # # # # # # # # # # # # # # 
+  unsupervised:
+    flag_extra_weak: False
+    threshold: 0.95           # ============================================================================= <<abl1-threshold>>: [0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
+    loss_weight: 1.0          # ============================================================================= << abl2-weight >> : [1.0, 1.5, 2.0, 2.5, 3.0, 4.0]
+    #------ 2)cutmix augs ------#
+    use_cutmix: True
+    use_cutmix_adaptive: True
+    use_cutmix_trigger_prob: 1.0
+
+# # # # # # # # # # # # # # 
+# 3. output files, and loss
+# # # # # # # # # # # # # # 
+saver:
+  snapshot_dir: checkpoints
+  pretrain: ''
+  use_tb: False
+
+criterion:
+  type: CELoss
+  kwargs:  
+    use_weight: False
+
+# # # # # # # # # # # # # # 
+# 4. models
+# # # # # # # # # # # # # # 
+net: # Required.
+  num_classes: 21
+  sync_bn: True
+  ema_decay: 0.999
+  encoder:
+    # type: augseg.models.resnet.resnet50
+    # pretrain: ./pretrained/resnet50.pth
+    type: augseg.models.resnet.resnet101
+    pretrain: ./pretrained/resnet101.pth
+    kwargs:
+      zero_init_residual: True
+      multi_grid: True
+      replace_stride_with_dilation: [False, False, True]  # [output_stride = 16]
+      # replace_stride_with_dilation: [False, True, True]  # [output_stride = 8]
+  decoder:
+    type: augseg.models.decoder.dec_deeplabv3_plus
+    kwargs:
+      inner_planes: 256
+      low_conv_planes: 48
+      dilations: [6, 12, 18]  # [output_stride = 16]
+      # dilations: [12, 24, 36]  # [output_stride = 8]
