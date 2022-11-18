@@ -64,16 +64,16 @@ Here is our adopted way，
 ```
 ├── ./data
     ├── splitsall
-    		├── cityscapes
-    		├── pascal
-    		└── pascal_u2pl 
+    	├── cityscapes
+    	├── pascal
+    	└── pascal_u2pl 
     ├── VOC2012
-    		├── JPEGImages
-    		├── SegmentationClass
-    		└── SegmentationClassAug
+    	├── JPEGImages
+    	├── SegmentationClass
+    	└── SegmentationClassAug
     └── cityscapes
         ├── gtFine
-    		└── leftImg8bit
+    	└── leftImg8bit
 ```
 
 
