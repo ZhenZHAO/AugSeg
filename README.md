@@ -1,6 +1,6 @@
 # AugSeg
 
-> Submited CVPR Paper: "Augmentation Matters: A Simple-yet-Effective Approach to Semi-supervised Semantic Segmentation".
+> "Augmentation Matters: A Simple-yet-Effective Approach to Semi-supervised Semantic Segmentation".
 
 
 
