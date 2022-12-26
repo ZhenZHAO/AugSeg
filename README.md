@@ -58,6 +58,7 @@ Please download the Pascal and Cityscapes, and set up the path to them properly 
 
 - Pascal: [JPEGImages](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar) | [SegmentationClass](https://drive.google.com/file/d/1ikrDlsai5QSf2GiSUR3f8PZUzyTubcuF/view?usp=sharing)
 - Cityscapes: [leftImg8bit](https://www.cityscapes-dataset.com/file-handling/?packageID=3) | [gtFine](https://drive.google.com/file/d/1E_27g9tuHm6baBqcA7jct_jqcGA89QPm/view?usp=sharing)
+
 - Splitall: included.
 
 Here is our adopted way，
@@ -82,7 +83,9 @@ Here is our adopted way，
 
 Please download the pretrained models, and set up the path to these models properly in the file of `config_xxx.yaml` .
 
-[ResNet-50](https://drive.google.com/file/d/1AuyE_rCUSwDpjMJHMPklXeKdZpdH1-6F/view?usp=sharing) | [ResNet-101](https://drive.google.com/file/d/13jNMOEYkqBC3CimlSSw-sWRHVZEeROmK/view?usp=sharing) 
+~~[ResNet-50](https://drive.google.com/file/d/1AuyE_rCUSwDpjMJHMPklXeKdZpdH1-6F/view?usp=sharing) | [ResNet-101](https://drive.google.com/file/d/13jNMOEYkqBC3CimlSSw-sWRHVZEeROmK/view?usp=sharing)~~
+
+[ResNet-50](https://drive.google.com/file/d/1mqUrqFvTQ0k5QEotk4oiOFyP6B9dVZXS/view?usp=sharing) | [ResNet-101](https://drive.google.com/file/d/1Rx0legsMolCWENpfvE2jUScT3ogalMO8/view?usp=sharing) 
 
 Here is our adopted way，
 
@@ -118,6 +121,24 @@ vim ./scripts/run_abls_citys.sh
 sh ./scripts/run_abls_citys.sh
 
 ```
+
+## Citation
+
+If you find these projects useful, please consider citing:
+
+```bibtex
+@article{augseg22,
+  title={Augmentation Matters: A Simple-yet-Effective Approach to Semi-supervised Semantic Segmentation},
+  author={Zhao, Zhen and Yang, Lihe and Long, Sifan and Pi, Jimin and Zhou, Luping and Wang, Jingdong},
+  journal={arXiv:2212.04976},
+  year={2022}
+}
+```
+
+We have other relevant semi-supervised semantic segmentation projects:
+- [ST++](https://github.com/LiheYoung/ST-PlusPlus)
+- [iMas](https://github.com/ZhenZHAO/iMAS)
+- [Unimatch](https://github.com/LiheYoung/UniMatch)
 
 
 ## Acknowledgement
