@@ -127,11 +127,11 @@ sh ./scripts/run_abls_citys.sh
 If you find these projects useful, please consider citing:
 
 ```bibtex
-@article{augseg22,
+@inproceedings{zhen23augseg,
   title={Augmentation Matters: A Simple-yet-Effective Approach to Semi-supervised Semantic Segmentation},
   author={Zhao, Zhen and Yang, Lihe and Long, Sifan and Pi, Jimin and Zhou, Luping and Wang, Jingdong},
-  journal={arXiv:2212.04976},
-  year={2022}
+  booktitle={CVPR},
+  year={2023}
 }
 ```
 
