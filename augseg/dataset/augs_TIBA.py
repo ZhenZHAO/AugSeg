@@ -41,7 +41,8 @@ class ToTensorAndNormalize(object):
 
 class Resize(object):
     def __init__(self, base_size, ratio_range, scale=True, bigger_side_to_base_size=True):
-        assert isinstance(ratio_range, collections.Iterable) and len(ratio_range) == 2
+        # assert isinstance(ratio_range, collections.Iterable) and len(ratio_range) == 2 
+        assert isinstance(ratio_range, collections.abc.Iterable) and len(ratio_range) == 2 # for recent python version
         self.base_size = base_size
         self.ratio_range = ratio_range
         self.scale = scale
