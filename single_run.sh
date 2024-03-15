@@ -1,13 +1,11 @@
-#!/bin/sh
+tport=53907
+ngpu=2
+ROOT=.
 
-# update envs
-source ./scripts/bashtorch
-
-# --- vocs --- #
-# sh ./scripts/zsing_run_voc.sh 
-
-# --- city --- #
-sh ./scripts/zsing_run_citys.sh
-
-# pass in params -- deprecated
-# sh ./scripts/zsing_run.sh . 2 53269
+CUDA_VISIBLE_DEVICES=0,1 \
+python -m torch.distributed.launch \
+    --nproc_per_node=${ngpu} \
+    --node_rank=0 \
+    --master_port=${tport} \
+    $ROOT/train_semi.py \
+    --config=$ROOT/exps/zrun_vocs_u2pl/voc_semi662/config_semi.yaml --seed 2 --port ${tport}
