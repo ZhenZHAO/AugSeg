@@ -1,0 +1,15 @@
+pyyaml>=5.4.0
+easydict
+tensorboard
+opencv-python
+scipy
+scikit-learn
+scikit-image
+einops
+h5py
+pandas
+tqdm
+simpleitk
+medpy
+nibabel
+h5py
