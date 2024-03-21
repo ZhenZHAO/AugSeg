@@ -12,4 +12,3 @@ tqdm
 simpleitk
 medpy
 nibabel
-h5py
